@@ -1,0 +1,26 @@
+package com.pft.liuxiaofeng.nbajames.activity;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+
+import java.util.ArrayList;
+
+/**
+ * Created by LittlePudding on 17-6-12.
+ */
+
+public class BaseActivity extends AppCompatActivity {
+    protected String TAG;
+    protected ArrayList<Activity> activityList = new ArrayList<>();
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        TAG = getClass().getSimpleName();
+        Log.d(TAG,"onCreat！");
+        activityList.add(this);
+    }
+}
