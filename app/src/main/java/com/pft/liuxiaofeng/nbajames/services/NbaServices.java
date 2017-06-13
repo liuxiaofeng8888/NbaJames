@@ -11,6 +11,6 @@ import retrofit2.http.Query;
  */
 
 public interface NbaServices {
-    @GET("/nba/all_team_info.php?key=bff90bfa2891ccb24c021931ea874b80")
-    Call<String> getAllTeamInfo();
+    @GET("nba/all_team_info.php")
+    Call<AllTeamInfo> getAllTeamInfo(@Query("key") String key);
 }

@@ -14,6 +14,8 @@ import java.util.ArrayList;
 
 public class BaseActivity extends AppCompatActivity {
     protected String TAG;
+    protected String key = "bff90bfa2891ccb24c021931ea874b80";
+    protected String baseUrl = "http://v.juhe.cn/";
     protected ArrayList<Activity> activityList = new ArrayList<>();
 
     @Override

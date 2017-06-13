@@ -393,25 +393,7 @@ public class AllTeamInfo implements Serializable {
                     this.capacity = capacity;
                 }
 
-//                @Override
-//                public String toString() {
-//                    return "StadiumsInfoBean{" +
-//                            "id=" + id +
-//                            ", name='" + name + '\'' +
-//                            ", eng_name='" + eng_name + '\'' +
-//                            ", city='" + city + '\'' +
-//                            ", state='" + state + '\'' +
-//                            ", capacity=" + capacity +
-//                            '}';
-//                }
             }
         }
-
-//        @Override
-//        public String toString() {
-//            return "ResultBean{" +
-//                    "_$1=" + _$1 +
-//                    '}';
-//        }
     }
 }
