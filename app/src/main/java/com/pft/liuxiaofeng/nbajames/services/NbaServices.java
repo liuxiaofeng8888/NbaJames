@@ -2,7 +2,8 @@ package com.pft.liuxiaofeng.nbajames.services;
 
 import com.pft.liuxiaofeng.nbajames.bean.AllTeamInfo;
 
-import retrofit2.Call;
+
+import io.reactivex.Observable;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 
@@ -12,5 +13,5 @@ import retrofit2.http.Query;
 
 public interface NbaServices {
     @GET("nba/all_team_info.php")
-    Call<AllTeamInfo> getAllTeamInfo(@Query("key") String key);
+    Observable<AllTeamInfo> getAllTeamInfo(@Query("key") String key);
 }
