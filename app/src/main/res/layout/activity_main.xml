@@ -2,21 +2,15 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_container"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.pft.liuxiaofeng.nbajames.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
-
-    <com.pft.liuxiaofeng.nbajames.view.CircleView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="20dp"
-        app:circle_color="@color/colorPrimary"
-        android:layout_centerInParent="true"/>
-
+ <fragment
+     android:name="com.pft.liuxiaofeng.nbajames.fragment.NbaFragment"
+     android:id="@+id/fragment_nba"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"/>
 </RelativeLayout>

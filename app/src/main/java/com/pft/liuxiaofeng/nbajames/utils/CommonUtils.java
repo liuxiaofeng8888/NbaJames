@@ -22,6 +22,5 @@ public class CommonUtils {
 
     public static void showToast(Context context, String msg) {
         Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
-        //Snackbar.make(rv, msg, Snackbar.LENGTH_SHORT).show();
     }
 }

@@ -3,6 +3,7 @@ package com.pft.liuxiaofeng.nbajames.bean;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -52,17 +53,17 @@ public class AllTeamInfo implements Serializable {
          */
 
         @SerializedName("1")
-        private _$1Bean _$1;
+        private TeamInfoBean teamInfoBean;
 
-        public _$1Bean get_$1() {
-            return _$1;
+        public TeamInfoBean getTeamInfoBean() {
+            return teamInfoBean;
         }
 
-        public void set_$1(_$1Bean _$1) {
-            this._$1 = _$1;
+        public void setTeamInfoBean(TeamInfoBean teamInfoBean) {
+            this.teamInfoBean = teamInfoBean;
         }
 
-        public static class _$1Bean {
+        public static class TeamInfoBean {
             /**
              * id : 1
              * tagid : 3020
@@ -291,35 +292,6 @@ public class AllTeamInfo implements Serializable {
 
             public List<StadiumsInfoBean> getStadiumsInfo() {
                 return stadiumsInfo;
-            }
-
-            @Override
-            public String toString() {
-                return "_$1Bean{" +
-                        "id=" + id +
-                        ", tagid=" + tagid +
-                        ", name='" + name + '\'' +
-                        ", eng_name='" + eng_name + '\'' +
-                        ", full_name='" + full_name + '\'' +
-                        ", eng_full_name='" + eng_full_name + '\'' +
-                        ", city='" + city + '\'' +
-                        ", bbr='" + bbr + '\'' +
-                        ", logo='" + logo + '\'' +
-                        ", home='" + home + '\'' +
-                        ", homepage_link='" + homepage_link + '\'' +
-                        ", intro='" + intro + '\'' +
-                        ", conference='" + conference + '\'' +
-                        ", eng_division='" + eng_division + '\'' +
-                        ", cn_division='" + cn_division + '\'' +
-                        ", stoped=" + stoped +
-                        ", chief_coach='" + chief_coach + '\'' +
-                        ", found_year=" + found_year +
-                        ", players='" + players + '\'' +
-                        ", stadiums=" + stadiums +
-                        ", team_link='" + team_link + '\'' +
-                        ", logo_link='" + logo_link + '\'' +
-                        ", stadiumsInfo=" + stadiumsInfo +
-                        '}';
             }
 
             public void setStadiumsInfo(List<StadiumsInfoBean> stadiumsInfo) {

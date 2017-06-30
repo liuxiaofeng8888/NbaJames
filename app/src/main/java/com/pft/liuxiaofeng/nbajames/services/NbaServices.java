@@ -13,5 +13,5 @@ import retrofit2.http.Query;
 
 public interface NbaServices {
     @GET("nba/all_team_info.php")
-    Observable<AllTeamInfo> getAllTeamInfo(@Query("key") String key);
+    Observable<String> getAllTeamInfo(@Query("key") String key);
 }
