@@ -3,15 +3,25 @@ package com.pft.liuxiaofeng.nbajames.fragment;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.google.gson.reflect.TypeToken;
 import com.pft.liuxiaofeng.nbajames.R;
+import com.pft.liuxiaofeng.nbajames.adapter.NbaInfoAdapter;
 import com.pft.liuxiaofeng.nbajames.bean.AllTeamInfo;
 import com.pft.liuxiaofeng.nbajames.services.RxRequest;
+
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import io.reactivex.Observable;
 import io.reactivex.Observer;
@@ -28,6 +38,7 @@ public class NbaFragment extends BaseFragment {
     private RecyclerView rv;
     private View rootView;
     private Activity activity;
+    private ArrayList<AllTeamInfo.ResultBean.TeamInfoBean> data = new ArrayList<>();
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -46,6 +57,10 @@ public class NbaFragment extends BaseFragment {
     public void onResume() {
         super.onResume();
         activity = getActivity();
+        rv.setLayoutManager(new LinearLayoutManager(activity));
+        rv.addItemDecoration(new DividerItemDecoration(activity,DividerItemDecoration.HORIZONTAL));
+        rv.setAdapter(new NbaInfoAdapter(data,activity));
+
                 Observable<String> observable = RxRequest.createRequest().getAllTeamInfo(key);
         observable.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -57,7 +72,24 @@ public class NbaFragment extends BaseFragment {
 
                     @Override
                     public void onNext(String value) {
-                        Log.e("data",value.toString());
+                        Gson gson = new Gson();
+                        JsonObject json = gson.fromJson(value,JsonObject.class);
+                        Object result = json.get("result");
+                        String str = gson.toJson(result);
+                        Type type = new TypeToken<HashMap<String,AllTeamInfo.ResultBean.TeamInfoBean>>(){}.getType();
+                        HashMap<String,AllTeamInfo.ResultBean.TeamInfoBean> info =
+                                gson.fromJson(str,type);
+//                        Log.e("data",info.get("1").getName());
+                        for (int i = 1; i <= 30; i++) {
+                            if (i==3)continue;
+                            AllTeamInfo.ResultBean.TeamInfoBean teamInfoBean =
+                                    new AllTeamInfo.ResultBean.TeamInfoBean();
+                            // TODO: 17-7-5 将服务器获取到的数据解析并封装进对象中
+                            teamInfoBean.setName(info.get(i+"").getName());
+                            teamInfoBean.setIntro(info.get(i+"").getIntro());
+                            data.add(teamInfoBean);
+                            rv.setAdapter(new NbaInfoAdapter(data,activity));
+                        }
                     }
 
                     @Override

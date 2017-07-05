@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 文字中 -->
+    <dimen name="font_size_mid">15sp</dimen>
+    <!-- 文字大 -->
+    <dimen name="font_size_big">17sp</dimen>
+    <!-- 文字大大 -->
+    <dimen name="font_size_max">20sp</dimen>
+    <!--内间距-->
+    <dimen name="pad_8dp">8dp</dimen>
+</resources>

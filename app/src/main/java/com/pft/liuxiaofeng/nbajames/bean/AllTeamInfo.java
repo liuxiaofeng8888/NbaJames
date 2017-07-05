@@ -1,6 +1,7 @@
 package com.pft.liuxiaofeng.nbajames.bean;
 
 import com.google.gson.annotations.SerializedName;
+import com.pft.liuxiaofeng.nbajames.utils.CommonUtils;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -52,7 +53,7 @@ public class AllTeamInfo implements Serializable {
          * 1 : {"id":1,"tagid":3020,"name":"凯尔特人","eng_name":"Celtics","full_name":"波士顿凯尔特人","eng_full_name":"Boston Celtics","city":"Boston","bbr":"BOS","logo":"e59350a5bc97aa5c.png","home":"TD 花园","homepage_link":"http://www.nba.com/celtics/","intro":"波士顿凯尔特人队是NBA现有30支球队之一，NBA的前身、BAA创始球队之一，1947年进入NBA，凯尔特人和尼克斯是仅有的两支参加了1946年首届BAA联赛且至今没有迁移过城市的NBA球队。","conference":"E","eng_division":"Atlantic","cn_division":"大西洋赛区","stoped":0,"chief_coach":"布拉德-史蒂文斯","found_year":1946,"players":"3450,3467,3613,3654,3658,3671,4779,4925,4926,150005,150006,150007,1137,3360,1032","stadiums":null,"team_link":"http://g.hupu.com/nba/teams/celtics","logo_link":"http://c2.hoopchina.com.cn/images/gamespace/team/e59350a5bc97aa5c.png","stadiumsInfo":[{"id":15,"name":"TD花园","eng_name":"TD Garden","city":"Boston","state":"MA","capacity":18624}]}
          */
 
-        @SerializedName("1")
+//        @SerializedName("1")
         private TeamInfoBean teamInfoBean;
 
         public TeamInfoBean getTeamInfoBean() {
@@ -203,7 +204,7 @@ public class AllTeamInfo implements Serializable {
             }
 
             public String getIntro() {
-                return intro;
+                return CommonUtils.isEmpty(intro)?"":intro;
             }
 
             public void setIntro(String intro) {
