@@ -58,7 +58,7 @@ public class NbaFragment extends BaseFragment {
         super.onResume();
         activity = getActivity();
         rv.setLayoutManager(new LinearLayoutManager(activity));
-        rv.addItemDecoration(new DividerItemDecoration(activity,DividerItemDecoration.HORIZONTAL));
+        rv.addItemDecoration(new DividerItemDecoration(activity,DividerItemDecoration.VERTICAL));
         rv.setAdapter(new NbaInfoAdapter(data,activity));
 
                 Observable<String> observable = RxRequest.createRequest().getAllTeamInfo(key);

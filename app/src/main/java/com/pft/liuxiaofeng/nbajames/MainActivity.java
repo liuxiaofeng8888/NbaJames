@@ -9,6 +9,7 @@ import com.pft.liuxiaofeng.nbajames.activity.BaseActivity;
 import com.pft.liuxiaofeng.nbajames.bean.AllTeamInfo;
 import com.pft.liuxiaofeng.nbajames.fragment.NbaFragment;
 import com.pft.liuxiaofeng.nbajames.services.RxRequest;
+import com.pft.liuxiaofeng.nbajames.utils.CommonUtils;
 
 import io.reactivex.Observable;
 import io.reactivex.Observer;
@@ -17,11 +18,16 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
 public class MainActivity extends BaseActivity {
+    static {
+        System.loadLibrary("native-lib");
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Log.e("jni",stringFromJNI()+"jni");
+        CommonUtils.showToast(this,stringFromJNI());
 //        initFragment();
 
 //        Observable<AllTeamInfo> observable =RxRequest.createRequest().getAllTeamInfo(key);
@@ -57,4 +63,10 @@ public class MainActivity extends BaseActivity {
 //        transaction.add(R.id.rl_container,nbaFragment);
 //        transaction.commit();
     }
+
+    /**
+     * A native method that is implemented by the 'native-lib.cpp' native library,
+     * which is packaged with this application.
+     */
+    public native String stringFromJNI();
 }

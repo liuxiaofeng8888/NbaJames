@@ -22,6 +22,19 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    // 配置cmake build 参数
+//    externalNativeBuild {
+//        cmake {
+//            cppFlags ""
+//        }
+//    }
+
+    // cmake构建的配置文件
+    externalNativeBuild {
+        cmake {
+            path 'CMakeLists.txt'
+        }
+    }
 }
 
 dependencies {
