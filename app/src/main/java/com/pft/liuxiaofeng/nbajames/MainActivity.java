@@ -4,6 +4,8 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 import com.pft.liuxiaofeng.nbajames.activity.BaseActivity;
 import com.pft.liuxiaofeng.nbajames.bean.AllTeamInfo;
@@ -17,7 +19,8 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements View.OnClickListener{
+    private Button btnNbaInfo;
     static {
         System.loadLibrary("native-lib");
     }
@@ -28,40 +31,25 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
         Log.e("jni",stringFromJNI()+"jni");
         CommonUtils.showToast(this,stringFromJNI());
-//        initFragment();
+        initFragment();
+    }
 
-//        Observable<AllTeamInfo> observable =RxRequest.createRequest().getAllTeamInfo(key);
-//        observable.subscribeOn(Schedulers.io())
-//                .observeOn(AndroidSchedulers.mainThread())
-//                .subscribe(new Observer<AllTeamInfo>() {
-//                    @Override
-//                    public void onSubscribe(Disposable d) {
-//
-//                    }
-//
-//                    @Override
-//                    public void onNext(AllTeamInfo value) {
-//                        Log.e("data",value.getResult().toString());
-//                    }
-//
-//                    @Override
-//                    public void onError(Throwable e) {
-//                        Log.e("error",e.toString()+"");
-//                    }
-//
-//                    @Override
-//                    public void onComplete() {
-//
-//                    }
-//                });
+    @Override
+    protected void intView() {
+        btnNbaInfo = (Button) findViewById(R.id.btn_nba_info);
+    }
+
+    @Override
+    protected void setListener() {
+        btnNbaInfo.setOnClickListener(this);
     }
 
     private void initFragment(){
-//        FragmentManager fragmentManager =getFragmentManager();
-//        FragmentTransaction transaction = fragmentManager.beginTransaction();
-//        NbaFragment nbaFragment = new NbaFragment();
+        FragmentManager fragmentManager =getFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        NbaFragment nbaFragment = new NbaFragment();
 //        transaction.add(R.id.rl_container,nbaFragment);
-//        transaction.commit();
+        transaction.commit();
     }
 
     /**
@@ -69,4 +57,15 @@ public class MainActivity extends BaseActivity {
      * which is packaged with this application.
      */
     public native String stringFromJNI();
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.btn_nba_info:
+
+                break;
+            default:
+                break;
+        }
+    }
 }

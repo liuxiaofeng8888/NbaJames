@@ -47,7 +47,6 @@ public class NbaFragment extends BaseFragment {
         return rootView;
     }
 
-
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);

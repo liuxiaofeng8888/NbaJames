@@ -9,6 +9,7 @@ import android.os.Build;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 import com.pft.liuxiaofeng.nbajames.R;
