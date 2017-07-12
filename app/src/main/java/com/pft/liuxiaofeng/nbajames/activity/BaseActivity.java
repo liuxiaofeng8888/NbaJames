@@ -24,7 +24,8 @@ import java.util.ArrayList;
         super.onCreate(savedInstanceState);
         TAG = getClass().getSimpleName();
         Log.d(TAG,"onCreat！");
-        intView();
+//        intView();
+//        setListener();
         activityList.add(this);
     }
 

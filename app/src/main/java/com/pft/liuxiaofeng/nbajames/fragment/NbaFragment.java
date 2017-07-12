@@ -18,6 +18,7 @@ import com.pft.liuxiaofeng.nbajames.R;
 import com.pft.liuxiaofeng.nbajames.adapter.NbaInfoAdapter;
 import com.pft.liuxiaofeng.nbajames.bean.AllTeamInfo;
 import com.pft.liuxiaofeng.nbajames.services.RxRequest;
+import com.pft.liuxiaofeng.nbajames.utils.Constant;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -39,10 +40,11 @@ public class NbaFragment extends BaseFragment {
     private View rootView;
     private Activity activity;
     private ArrayList<AllTeamInfo.ResultBean.TeamInfoBean> data = new ArrayList<>();
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.fragment_nba,container,false);
+        rootView = inflater.inflate(R.layout.fragment_nba, container, false);
         initView();
         return rootView;
     }
@@ -57,10 +59,10 @@ public class NbaFragment extends BaseFragment {
         super.onResume();
         activity = getActivity();
         rv.setLayoutManager(new LinearLayoutManager(activity));
-        rv.addItemDecoration(new DividerItemDecoration(activity,DividerItemDecoration.VERTICAL));
-        rv.setAdapter(new NbaInfoAdapter(data,activity));
+        rv.addItemDecoration(new DividerItemDecoration(activity, DividerItemDecoration.VERTICAL));
+        rv.setAdapter(new NbaInfoAdapter(data, activity));
 
-                Observable<String> observable = RxRequest.createRequest().getAllTeamInfo(key);
+        Observable<String> observable = RxRequest.createStringRequest().getAllTeamInfo(key);
         observable.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<String>() {
@@ -72,28 +74,30 @@ public class NbaFragment extends BaseFragment {
                     @Override
                     public void onNext(String value) {
                         Gson gson = new Gson();
-                        JsonObject json = gson.fromJson(value,JsonObject.class);
+                        JsonObject json = gson.fromJson(value, JsonObject.class);
                         Object result = json.get("result");
                         String str = gson.toJson(result);
-                        Type type = new TypeToken<HashMap<String,AllTeamInfo.ResultBean.TeamInfoBean>>(){}.getType();
-                        HashMap<String,AllTeamInfo.ResultBean.TeamInfoBean> info =
-                                gson.fromJson(str,type);
+                        Type type = new TypeToken<HashMap<String, AllTeamInfo.ResultBean.TeamInfoBean>>() {
+                        }.getType();
+                        HashMap<String, AllTeamInfo.ResultBean.TeamInfoBean> info =
+                                gson.fromJson(str, type);
 //                        Log.e("data",info.get("1").getName());
                         for (int i = 1; i <= 30; i++) {
-                            if (i==3)continue;
+                            if (i == 3) continue;
                             AllTeamInfo.ResultBean.TeamInfoBean teamInfoBean =
                                     new AllTeamInfo.ResultBean.TeamInfoBean();
                             // TODO: 17-7-5 将服务器获取到的数据解析并封装进对象中
-                            teamInfoBean.setName(info.get(i+"").getName());
-                            teamInfoBean.setIntro(info.get(i+"").getIntro());
+                            teamInfoBean.setName(info.get(i + "").getName());
+                            teamInfoBean.setIntro(info.get(i + "").getIntro());
+                            teamInfoBean.setId(info.get(i + "").getId());
                             data.add(teamInfoBean);
-                            rv.setAdapter(new NbaInfoAdapter(data,activity));
+                            rv.setAdapter(new NbaInfoAdapter(data, activity));
                         }
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.e("error",e.toString());
+                        Log.e("error", e.toString());
                     }
 
                     @Override
@@ -102,6 +106,7 @@ public class NbaFragment extends BaseFragment {
                     }
                 });
     }
+
     @Override
     public void onPause() {
         super.onPause();
@@ -111,5 +116,11 @@ public class NbaFragment extends BaseFragment {
     @Override
     void initView() {
         rv = (RecyclerView) rootView.findViewById(R.id.rv_nba_info);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Log.e("onDestroy", "invoke");
     }
 }

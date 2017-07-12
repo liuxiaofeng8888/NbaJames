@@ -27,7 +27,7 @@ public class RxRequest {
      *封装retrofit
      * @return retrofit的调用方法的接口
      */
-    public static NbaServices createRequest(){
+    public static NbaServices createStringRequest(){
         OkHttpClient client = new OkHttpClient.Builder()
                 .addInterceptor(new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
                 .build();
@@ -48,6 +48,24 @@ public class RxRequest {
                         };
                     }
                 })
+                .addConverterFactory(GsonConverterFactory.create())  //必须放在stringConverter的后面
+                .build();                                       //否则会抛出 json的IllegalState异常
+        return retrofit.create(NbaServices.class);
+    }
+
+    /**
+     *封装retrofit
+     * @return retrofit的调用方法的接口
+     */
+    public static NbaServices createGsonRequest(){
+        OkHttpClient client = new OkHttpClient.Builder()
+                .addInterceptor(new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
+                .build();
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(baseUrl)
+                .client(client)
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())  //必须放在stringConverter的后面
                 .build();                                       //否则会抛出 json的IllegalState异常
         return retrofit.create(NbaServices.class);

@@ -6,16 +6,54 @@
     android:layout_height="match_parent"
     tools:context="com.pft.liuxiaofeng.nbajames.MainActivity">
 
-    <LinearLayout
+    <FrameLayout
+        android:id="@+id/fragment"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ll_main_bottom" />
+
+    <LinearLayout
+        android:id="@+id/ll_main_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/btn_nba_info"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:text="nba"
+            android:textColor="@color/btn_color_selector" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:text="待定"
+            android:textColor="@color/btn_color_selector" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:text="待定"
+            android:textColor="@color/btn_color_selector" />
+
+        <Button
+            android:id="@+id/btn_my_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:text="控件"
+            android:textColor="@color/btn_color_selector" />
     </LinearLayout>
-    <com.pft.liuxiaofeng.nbajames.view.WaterWaveView2
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <!--<com.pft.liuxiaofeng.nbajames.view.WaterWaveView2-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content" />-->
 </RelativeLayout>

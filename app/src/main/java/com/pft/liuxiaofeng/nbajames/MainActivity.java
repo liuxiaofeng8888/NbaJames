@@ -3,24 +3,19 @@ package com.pft.liuxiaofeng.nbajames;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
 import com.pft.liuxiaofeng.nbajames.activity.BaseActivity;
-import com.pft.liuxiaofeng.nbajames.bean.AllTeamInfo;
+import com.pft.liuxiaofeng.nbajames.fragment.MyVIewFragment;
 import com.pft.liuxiaofeng.nbajames.fragment.NbaFragment;
-import com.pft.liuxiaofeng.nbajames.services.RxRequest;
-import com.pft.liuxiaofeng.nbajames.utils.CommonUtils;
 
-import io.reactivex.Observable;
-import io.reactivex.Observer;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.schedulers.Schedulers;
+public class MainActivity extends BaseActivity implements View.OnClickListener {
+    private Button btnNbaInfo; //NBA页面
+    private Button btnMyView; //我的自定义view
+    private NbaFragment nbaFragment;
+    private MyVIewFragment myVIewFragment;
 
-public class MainActivity extends BaseActivity implements View.OnClickListener{
-    private Button btnNbaInfo;
     static {
         System.loadLibrary("native-lib");
     }
@@ -29,28 +24,30 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.e("jni",stringFromJNI()+"jni");
-        CommonUtils.showToast(this,stringFromJNI());
+        intView();
+        setListener();
         initFragment();
+//        Log.e("jni",stringFromJNI()+"jni");
+//        CommonUtils.showToast(this,stringFromJNI());
     }
 
     @Override
     protected void intView() {
         btnNbaInfo = (Button) findViewById(R.id.btn_nba_info);
+        btnMyView = (Button) findViewById(R.id.btn_my_view);
     }
 
     @Override
     protected void setListener() {
         btnNbaInfo.setOnClickListener(this);
+        btnMyView.setOnClickListener(this);
     }
 
-    private void initFragment(){
-        FragmentManager fragmentManager =getFragmentManager();
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
-        NbaFragment nbaFragment = new NbaFragment();
-//        transaction.add(R.id.rl_container,nbaFragment);
-        transaction.commit();
+    private void initFragment() {
+        nbaFragment = new NbaFragment();
+        myVIewFragment = new MyVIewFragment();
     }
+
 
     /**
      * A native method that is implemented by the 'native-lib.cpp' native library,
@@ -60,12 +57,34 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        switch (v.getId()) {
             case R.id.btn_nba_info:
+                if (!nbaFragment.isAdded()) {
+                    fragmentTransaction.add(R.id.fragment, nbaFragment);
+                } else {
+                    fragmentTransaction.show(nbaFragment);
+                }
+                if (myVIewFragment.isAdded()) {
+                    fragmentTransaction.hide(myVIewFragment); //隐藏自定义view的Fragemnt
+                }
+                break;
 
+            case R.id.btn_my_view:
+                if (!myVIewFragment.isAdded()) {
+                    fragmentTransaction.add(R.id.fragment, myVIewFragment);
+                } else {
+                    fragmentTransaction.show(myVIewFragment);
+                }
+
+                if (nbaFragment.isAdded()) {
+                    fragmentTransaction.hide(nbaFragment); //隐藏nba的Fragment
+                }
                 break;
             default:
                 break;
         }
+        fragmentTransaction.commit();
     }
 }

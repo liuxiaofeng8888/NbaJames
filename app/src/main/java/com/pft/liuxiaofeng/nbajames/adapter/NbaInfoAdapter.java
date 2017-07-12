@@ -1,6 +1,7 @@
 package com.pft.liuxiaofeng.nbajames.adapter;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.pft.liuxiaofeng.nbajames.R;
+import com.pft.liuxiaofeng.nbajames.activity.TeamInfoDetailActivity;
 import com.pft.liuxiaofeng.nbajames.bean.AllTeamInfo;
 import com.pft.liuxiaofeng.nbajames.utils.CommonUtils;
 
@@ -44,7 +46,10 @@ public class NbaInfoAdapter extends RecyclerView.Adapter<NbaInfoAdapter.ViewHold
         holder.llItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CommonUtils.showToast(activity,data.get(position).getName()+"is click!");
+                Intent intent = new Intent();
+                intent.setClass(activity,TeamInfoDetailActivity.class);
+                intent.putExtra("id",data.get(position).getId());
+                activity.startActivity(intent);
             }
         });
     }
