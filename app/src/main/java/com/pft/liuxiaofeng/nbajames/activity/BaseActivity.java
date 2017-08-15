@@ -29,7 +29,7 @@ import java.util.ArrayList;
         activityList.add(this);
     }
 
-    protected abstract void intView();
+    protected abstract void initView();
 
     protected void setListener(){
 

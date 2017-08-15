@@ -31,6 +31,6 @@ public class MyVIewFragment extends BaseFragment {
 
     @Override
     public void onHiddenChanged(boolean hidden) {
-        super.onHiddenChanged(hidden);
+//            CommonUtils.showToast(getActivity(),"请点击或者滑动屏幕");
     }
 }

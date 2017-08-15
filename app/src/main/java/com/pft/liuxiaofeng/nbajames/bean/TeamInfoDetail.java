@@ -89,7 +89,7 @@ public class TeamInfoDetail implements Serializable{
         private String cn_division;
         private int stoped;
         private String chief_coach;
-        private int found_year;
+        private String found_year;
         private String players;
         private Object stadiums;
         private String team_link;
@@ -233,11 +233,11 @@ public class TeamInfoDetail implements Serializable{
             this.chief_coach = chief_coach;
         }
 
-        public int getFound_year() {
+        public String getFound_year() {
             return found_year;
         }
 
-        public void setFound_year(int found_year) {
+        public void setFound_year(String found_year) {
             this.found_year = found_year;
         }
 

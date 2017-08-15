@@ -33,12 +33,18 @@ public class TeamInfoDetailActivity extends BaseActivity {
         setContentView(R.layout.activity_team_info_detail);
         intent = getIntent();
         teamId = intent.getIntExtra("id", -999);
+        initView();
         getData();
     }
 
     @Override
-    protected void intView() {
-
+    protected void initView() {
+        teamFullName = (TextView) findViewById(R.id.tv_team_fullname);
+        teamIntro = (TextView) findViewById(R.id.tv_team_intro);
+        teamFoundYear = (TextView) findViewById(R.id.tv_team_found_year);
+        teamLink = (TextView) findViewById(R.id.tv_team_link);
+        teamPlayers = (TextView) findViewById(R.id.tv_team_players);
+        teamStadiumsInfo = (TextView) findViewById(R.id.tv_team_stadiums_info);
     }
 
     /**
@@ -56,7 +62,12 @@ public class TeamInfoDetailActivity extends BaseActivity {
                     @Override
                     public void onNext(TeamInfoDetail value) {
                         if (Constant.SUCCESS.equals(value.getReason())){
-
+                            teamFullName.setText(value.getResult().getFull_name());
+                            teamIntro.setText(value.getResult().getIntro());
+                            teamFoundYear.setText(value.getResult().getFound_year());
+                            teamLink.setText(value.getResult().getTeam_link());
+//                            teamPlayers.setText(value.getResult().getPlayersInfo());
+//                            teamStadiumsInfo.setText(value.getResult().getStadiumsInfo());
                         }
                     }
 

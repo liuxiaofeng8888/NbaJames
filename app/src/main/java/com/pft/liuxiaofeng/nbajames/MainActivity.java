@@ -24,7 +24,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        intView();
+        initView();
         setListener();
         initFragment();
 //        Log.e("jni",stringFromJNI()+"jni");
@@ -32,7 +32,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     }
 
     @Override
-    protected void intView() {
+    protected void initView() {
         btnNbaInfo = (Button) findViewById(R.id.btn_nba_info);
         btnMyView = (Button) findViewById(R.id.btn_my_view);
     }
