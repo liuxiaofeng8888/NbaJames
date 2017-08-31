@@ -18,11 +18,13 @@ import java.util.ArrayList;
     protected String key = "bff90bfa2891ccb24c021931ea874b80";
     protected String baseUrl = "http://v.juhe.cn/";
     protected ArrayList<Activity> activityList = new ArrayList<>();
+    protected Activity activity;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         TAG = getClass().getSimpleName();
+        activity = this;
         Log.d(TAG,"onCreat！");
 //        intView();
 //        setListener();

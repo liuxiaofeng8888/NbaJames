@@ -2,6 +2,8 @@ package com.pft.liuxiaofeng.nbajames;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
+import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -9,12 +11,14 @@ import android.widget.Button;
 import com.pft.liuxiaofeng.nbajames.activity.BaseActivity;
 import com.pft.liuxiaofeng.nbajames.fragment.MyVIewFragment;
 import com.pft.liuxiaofeng.nbajames.fragment.NbaFragment;
+import com.pft.liuxiaofeng.nbajames.services.AidlService;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
     private Button btnNbaInfo; //NBA页面
     private Button btnMyView; //我的自定义view
     private NbaFragment nbaFragment;
     private MyVIewFragment myVIewFragment;
+
 
     static {
         System.loadLibrary("native-lib");

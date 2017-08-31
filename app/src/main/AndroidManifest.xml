@@ -19,6 +19,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.TeamInfoDetailActivity"></activity>
+
+        <service android:name=".services.AidlService"
+            android:process=":service"/>
     </application>
 
 </manifest>
