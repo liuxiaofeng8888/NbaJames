@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.IBinder;
 import android.os.RemoteException;
 import android.support.annotation.Nullable;
+import android.util.Log;
 
 import com.pft.liuxiaofeng.nbajames.IMyAidlInterface;
 import com.pft.liuxiaofeng.nbajames.utils.CommonUtils;
@@ -24,7 +25,8 @@ public class AidlService extends Service {
 
         @Override
         public void getCount() throws RemoteException {
-            CommonUtils.showToast(getApplicationContext(),"AIDL功能调用!");
+            Log.e("service","调用了");
+//            CommonUtils.showToast(getApplicationContext(),"AIDL功能调用!");
         }
 
     };

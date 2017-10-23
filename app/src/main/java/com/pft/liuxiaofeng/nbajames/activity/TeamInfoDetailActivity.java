@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.pft.liuxiaofeng.nbajames.R;
 import com.pft.liuxiaofeng.nbajames.bean.TeamInfoDetail;
 import com.pft.liuxiaofeng.nbajames.services.RxRequest;
@@ -33,6 +34,7 @@ public class TeamInfoDetailActivity extends BaseActivity {
         setContentView(R.layout.activity_team_info_detail);
         intent = getIntent();
         teamId = intent.getIntExtra("id", -999);
+//        Glide.with(activity).load(R.drawable.btn_selector).into();
         initView();
         getData();
     }

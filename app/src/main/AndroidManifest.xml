@@ -3,8 +3,14 @@
     package="com.pft.liuxiaofeng.nbajames">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="Android.permission.NFC" />
+
+    <uses-feature
+        android:name="android.hardware.nfc"
+        android:required="true" />
 
     <application
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/app_icon"
         android:label="@string/app_name"
@@ -13,15 +19,31 @@
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.TeamInfoDetailActivity"></activity>
+        <activity
+            android:name=".activity.TeamInfoDetailActivity"
+            android:parentActivityName=".MainActivity" />
 
-        <service android:name=".services.AidlService"
-            android:process=":service"/>
+        <service
+            android:name=".services.AidlService"
+            android:process=":remote" />
+
+        <activity android:name=".activity.NfcActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:alwaysRetainTaskState="true">
+            <!--<meta-data android:name="android.nfc.action.Tec"-->
+            <intent-filter>
+                <action android:name="android.nfc.action.TECH_DISCOVERED" />
+                <action android:name="android.nfc.action.TAG_DISCOVERED" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+            </intent-filter>
+            </activity>
     </application>
 
 </manifest>
