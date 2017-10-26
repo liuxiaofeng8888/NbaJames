@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context="com.pft.liuxiaofeng.nbajames.activity.BluetoothActivity">
+
+    <Button
+        android:id="@+id/btn_open_bluetooth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="开启蓝牙" />
+
+    <Button
+        android:id="@+id/btn_scan_bluetooth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="搜索附近蓝牙设备" />
+
+    <Button
+        android:id="@+id/btn_connect_gatt_server"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="连接蓝牙" />
+
+    <Button
+        android:id="@+id/btn_service_discovery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="发现服务" />
+
+    <Button
+        android:id="@+id/btn_read_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="读取数据" />
+    <Button
+        android:id="@+id/btn_print"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="打印" />
+    <Button
+        android:id="@+id/btn_bluetooth_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="关闭蓝牙" />
+</LinearLayout>

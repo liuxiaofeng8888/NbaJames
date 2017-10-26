@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     android:orientation="vertical">
 
     <Button
@@ -10,19 +11,27 @@
         android:layout_height="wrap_content"
         android:autoLink="web"
         android:text="https://github.com/liuxiaofeng8888?tab=stars" />
-    <com.github.mikephil.charting.charts.LineChart
-        android:id="@+id/line_chart"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+
+    <!--<com.github.mikephil.charting.charts.LineChart-->
+        <!--android:id="@+id/line_chart"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent" />-->
 
     <Button
         android:id="@+id/btn_plugin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="插件"/>
+        android:text="插件" />
+
     <Button
         android:id="@+id/btn_nfc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="nfc"/>
+        android:text="nfc" />
+
+    <Button
+        android:id="@+id/btn_bluetooth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="bluetooth" />
 </LinearLayout>

@@ -13,6 +13,7 @@ import android.widget.Button;
 import com.didi.virtualapk.PluginManager;
 import com.github.mikephil.charting.charts.LineChart;
 import com.pft.liuxiaofeng.nbajames.R;
+import com.pft.liuxiaofeng.nbajames.activity.BluetoothActivity;
 import com.pft.liuxiaofeng.nbajames.activity.NfcActivity;
 
 import java.io.File;
@@ -29,6 +30,7 @@ public class PlayFragment extends BaseFragment {
     private LineChart lineChart;
     private Button btnPligin;
     private Button btnNfc;
+    private Button btnBluetooth;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -47,9 +49,16 @@ public class PlayFragment extends BaseFragment {
     @Override
     void initView() {
         button = (Button) view.findViewById(R.id.btn_auto_link);
-        lineChart = (LineChart) view.findViewById(R.id.line_chart);
+//        lineChart = (LineChart) view.findViewById(R.id.line_chart);
         btnPligin = (Button) view.findViewById(R.id.btn_plugin);
         btnNfc = (Button) view.findViewById(R.id.btn_nfc);
+        btnBluetooth = (Button) view.findViewById(R.id.btn_bluetooth);
+        btnBluetooth.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(activity, BluetoothActivity.class));
+            }
+        });
         btnNfc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
