@@ -116,6 +116,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 if (nbaFragment.isAdded()) {
                     fragmentTransaction.hide(nbaFragment); //隐藏nba的Fragment
                 }
+
+                if (playFragment.isAdded()) {
+                    fragmentTransaction.hide(playFragment); //隐藏play的Fragment
+                }
                 break;
 
             case R.id.btn_service:
@@ -130,6 +134,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                     fragmentTransaction.add(R.id.fragment,playFragment);
                 }else {
                     fragmentTransaction.show(playFragment);
+                }
+                if (nbaFragment.isAdded()) {
+                    fragmentTransaction.hide(nbaFragment); //隐藏nba的Fragment
+                }
+
+                if (myVIewFragment.isAdded()) {
+                    fragmentTransaction.hide(myVIewFragment); //隐藏n自定义view的Fragment
                 }
                 break;
             default:

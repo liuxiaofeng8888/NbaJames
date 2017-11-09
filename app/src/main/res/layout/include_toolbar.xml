@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccent">
+
+            <ImageView
+                android:id="@+id/iv_delete_webview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:background="@android:drawable/presence_offline"/>
+
+            <TextView
+                android:id="@+id/tv_toolbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="抄表"
+                android:textColor="@color/white"
+                android:textSize="17sp" />
+
+            <Button
+                android:id="@+id/createTaskBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="我的toolnar"
+                android:textColor="@color/white"
+
+                android:visibility="gone" />
+            <TextView
+                android:id="@+id/btn_task_search"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:paddingRight="15dp"
+
+                android:gravity="center_vertical"
+
+                android:drawablePadding="3dp"
+                android:layout_gravity="right"
+
+                android:textColor="@color/white"
+                android:visibility="gone"
+                android:text="" />
+        </android.support.v7.widget.Toolbar>
+
+</RelativeLayout>

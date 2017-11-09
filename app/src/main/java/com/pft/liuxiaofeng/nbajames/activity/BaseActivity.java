@@ -9,6 +9,8 @@ import android.view.View;
 
 import java.util.ArrayList;
 
+import io.reactivex.disposables.CompositeDisposable;
+
 /**
  * Created by LittlePudding on 17-6-12.
  */
@@ -19,6 +21,7 @@ import java.util.ArrayList;
     protected String baseUrl = "http://v.juhe.cn/";
     protected ArrayList<Activity> activityList = new ArrayList<>();
     protected Activity activity;
+    protected CompositeDisposable compositeDisposable = new CompositeDisposable();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
