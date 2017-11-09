@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.didi.virtualapk.PluginManager;
 import com.github.mikephil.charting.charts.LineChart;
@@ -53,6 +54,9 @@ public class PlayFragment extends BaseFragment {
         btnPligin = (Button) view.findViewById(R.id.btn_plugin);
         btnNfc = (Button) view.findViewById(R.id.btn_nfc);
         btnBluetooth = (Button) view.findViewById(R.id.btn_bluetooth);
+        tvToolbar = (TextView) view.findViewById(R.id.tv_toolbar);
+
+        initToolbar(tvToolbar);
         btnBluetooth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -83,5 +87,10 @@ public class PlayFragment extends BaseFragment {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    void initToolbar(TextView tvToolbar) {
+        tvToolbar.setText("play");
     }
 }

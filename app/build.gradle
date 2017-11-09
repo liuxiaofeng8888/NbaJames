@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'com.didi.virtualapk.host'
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    buildToolsVersion '26.0.2'
     defaultConfig {
         applicationId "com.pft.liuxiaofeng.nbajames"
         minSdkVersion 18
@@ -62,4 +62,5 @@ dependencies {
     compile 'com.didi.virtualapk:core:0.9.1'
     compile 'com.github.bumptech.glide:glide:3.7.0'
     testCompile 'junit:junit:4.12'
+    compile 'com.github.romainguy:ViewServer:017c01cd512cac3ec054d9eee05fc48c5a9d2de'
 }

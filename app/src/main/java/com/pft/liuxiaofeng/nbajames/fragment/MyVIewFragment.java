@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.pft.liuxiaofeng.nbajames.R;
 import com.pft.liuxiaofeng.nbajames.utils.CommonUtils;
@@ -26,7 +27,14 @@ public class MyVIewFragment extends BaseFragment {
 
     @Override
     public void initView() {
+//        tvToolbar = (TextView) view.findViewById(R.id.tv_toolbar);
+//        initToolbar(tvToolbar);
         CommonUtils.showToast(getActivity(),"请点击或者滑动屏幕");
+    }
+
+    @Override
+    void initToolbar(TextView tvToolbar) {
+        tvToolbar.setText("控件");
     }
 
     @Override

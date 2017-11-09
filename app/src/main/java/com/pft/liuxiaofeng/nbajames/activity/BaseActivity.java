@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 
+import com.android.debug.hv.ViewServer;
+
 import java.util.ArrayList;
 
 import io.reactivex.disposables.CompositeDisposable;
@@ -26,6 +28,7 @@ import io.reactivex.disposables.CompositeDisposable;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ViewServer.get(this).addWindow(this);
         TAG = getClass().getSimpleName();
         activity = this;
         Log.d(TAG,"onCreat！");
@@ -34,9 +37,21 @@ import io.reactivex.disposables.CompositeDisposable;
         activityList.add(this);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        ViewServer.get(this).setFocusedWindow(this);
+    }
+
     protected abstract void initView();
 
     protected void setListener(){
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        ViewServer.get(this).removeWindow(this);
     }
 }

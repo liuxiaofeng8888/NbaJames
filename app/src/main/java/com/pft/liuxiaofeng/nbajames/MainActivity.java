@@ -5,12 +5,14 @@ import android.app.FragmentTransaction;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.os.RemoteException;
 import android.view.View;
 import android.widget.Button;
 
+import com.android.debug.hv.ViewServer;
 import com.pft.liuxiaofeng.nbajames.activity.BaseActivity;
 import com.pft.liuxiaofeng.nbajames.fragment.MyVIewFragment;
 import com.pft.liuxiaofeng.nbajames.fragment.NbaFragment;
@@ -61,6 +63,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 //        CommonUtils.showToast(this,stringFromJNI());
     }
 
+
     @Override
     protected void initView() {
         btnNbaInfo = (Button) findViewById(R.id.btn_nba_info);
@@ -81,6 +84,22 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         nbaFragment = new NbaFragment();
         myVIewFragment = new MyVIewFragment();
         playFragment = new PlayFragment();
+
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        if (!myVIewFragment.isAdded()) {
+            fragmentTransaction.add(R.id.fragment, myVIewFragment);
+        } else {
+            fragmentTransaction.show(myVIewFragment);
+        }
+
+        fragmentTransaction.commit();
+
+        btnNbaInfo.setTextColor(getResources().getColor(R.color.colorPrimary));
+        btnHomePlay.setTextColor(getResources().getColor(R.color.colorPrimary));
+        btnMyView.setTextColor(getResources().getColor(R.color.colorAccent));
+        btnService.setTextColor(getResources().getColor(R.color.colorPrimary));
+
     }
 
 
@@ -104,9 +123,18 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 if (myVIewFragment.isAdded()) {
                     fragmentTransaction.hide(myVIewFragment); //隐藏自定义view的Fragemnt
                 }
+
+                if (playFragment.isAdded()) {
+                    fragmentTransaction.hide(playFragment); //隐藏play的Fragment
+                }
+
+                btnNbaInfo.setTextColor(getResources().getColor(R.color.colorAccent));
+                btnHomePlay.setTextColor(getResources().getColor(R.color.colorPrimary));
+                btnMyView.setTextColor(getResources().getColor(R.color.colorPrimary));
+                btnService.setTextColor(getResources().getColor(R.color.colorPrimary));
                 break;
 
-            case R.id.btn_my_view:
+            case R.id.btn_my_view: //点击我的控件
                 if (!myVIewFragment.isAdded()) {
                     fragmentTransaction.add(R.id.fragment, myVIewFragment);
                 } else {
@@ -120,6 +148,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 if (playFragment.isAdded()) {
                     fragmentTransaction.hide(playFragment); //隐藏play的Fragment
                 }
+                btnNbaInfo.setTextColor(getResources().getColor(R.color.colorPrimary));
+                btnHomePlay.setTextColor(getResources().getColor(R.color.colorPrimary));
+                btnMyView.setTextColor(getResources().getColor(R.color.colorAccent));
+                btnService.setTextColor(getResources().getColor(R.color.colorPrimary));
                 break;
 
             case R.id.btn_service:
@@ -128,6 +160,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 } catch (RemoteException e) {
                     e.printStackTrace();
                 }
+                btnNbaInfo.setTextColor(getResources().getColor(R.color.colorPrimary));
+                btnHomePlay.setTextColor(getResources().getColor(R.color.colorPrimary));
+                btnMyView.setTextColor(getResources().getColor(R.color.colorPrimary));
+                btnService.setTextColor(getResources().getColor(R.color.colorAccent));
                 break;
             case R.id.btn_home_play:
                 if (!playFragment.isAdded()){
@@ -140,12 +176,17 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 }
 
                 if (myVIewFragment.isAdded()) {
-                    fragmentTransaction.hide(myVIewFragment); //隐藏n自定义view的Fragment
+                    fragmentTransaction.hide(myVIewFragment); //隐藏自定义view的Fragment
                 }
+                btnNbaInfo.setTextColor(getResources().getColor(R.color.colorPrimary));
+                btnHomePlay.setTextColor(getResources().getColor(R.color.colorAccent));
+                btnMyView.setTextColor(getResources().getColor(R.color.colorPrimary));
+                btnService.setTextColor(getResources().getColor(R.color.colorPrimary));
                 break;
             default:
                 break;
         }
         fragmentTransaction.commit();
     }
+
 }

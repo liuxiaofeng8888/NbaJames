@@ -6,15 +6,10 @@
     android:layout_height="match_parent"
     tools:context="com.pft.liuxiaofeng.nbajames.MainActivity">
 
-    <include
-        android:id="@+id/top"
-        layout="@layout/include_toolbar" />
-
     <FrameLayout
         android:id="@+id/fragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/top"
         android:layout_above="@+id/ll_main_bottom" />
 
     <LinearLayout
