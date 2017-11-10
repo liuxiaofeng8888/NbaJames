@@ -8,6 +8,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:theme="@style/toolbar_theme"
             android:background="@color/colorAccent">
 
             <ImageView
@@ -22,7 +23,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="抄表"
+                android:text="NBAJAMES"
                 android:textColor="@color/white"
                 android:textSize="17sp" />
 

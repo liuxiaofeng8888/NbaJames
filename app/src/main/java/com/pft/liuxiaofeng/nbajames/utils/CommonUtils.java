@@ -1,6 +1,8 @@
 package com.pft.liuxiaofeng.nbajames.utils;
 
 import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.widget.Toast;
 
 import java.text.NumberFormat;
@@ -14,9 +16,9 @@ public class CommonUtils {
     /**
      * 判断一个字符串是否为空
      */
-    public static boolean isEmpty(Object object){
-        String string = object+"";
-        if (string.equals("")||string.equals("null")){
+    public static boolean isEmpty(Object object) {
+        String string = object + "";
+        if (string.equals("") || string.equals("null")) {
             return true;
         }
         return false;
@@ -29,7 +31,7 @@ public class CommonUtils {
     /**
      * 计算百分比
      */
-    public static String getPercentage(int num1,int num2){
+    public static String getPercentage(int num1, int num2) {
 
         // 创建一个数值格式化对象
 
@@ -59,5 +61,79 @@ public class CommonUtils {
     public static int px2dip(Context context, float pxValue) {
         final float scale = context.getResources().getDisplayMetrics().density;
         return (int) (pxValue / scale + 0.5f);
+    }
+
+    /**
+     * 判断是否有网络连接
+     *
+     * @param context
+     * @return
+     */
+    public static boolean isNetworkConnected(Context context) {
+        if (context != null) {
+            ConnectivityManager mConnectivityManager = (ConnectivityManager) context
+                    .getSystemService(Context.CONNECTIVITY_SERVICE);
+            NetworkInfo mNetworkInfo = mConnectivityManager.getActiveNetworkInfo();
+            if (mNetworkInfo != null) {
+                return mNetworkInfo.isAvailable();
+            }
+        }
+        return false;
+    }
+
+    /**
+     * 判断WIFI网络是否可用
+     *
+     * @param context
+     * @return
+     */
+    public boolean isWifiConnected(Context context) {
+        if (context != null) {
+            ConnectivityManager mConnectivityManager = (ConnectivityManager) context
+                    .getSystemService(Context.CONNECTIVITY_SERVICE);
+            NetworkInfo mWiFiNetworkInfo = mConnectivityManager
+                    .getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+            if (mWiFiNetworkInfo != null) {
+                return mWiFiNetworkInfo.isAvailable();
+            }
+        }
+        return false;
+    }
+
+
+    /**
+     * 判断mobile网络是否可用
+     *
+     * @param context
+     * @return
+     */
+    public boolean isMobileConnected(Context context) {
+        if (context != null) {
+            ConnectivityManager mConnectivityManager = (ConnectivityManager) context
+                    .getSystemService(Context.CONNECTIVITY_SERVICE);
+            NetworkInfo mMobileNetworkInfo = mConnectivityManager
+                    .getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+            if (mMobileNetworkInfo != null) {
+                return mMobileNetworkInfo.isAvailable();
+            }
+        }
+        return false;
+    }
+
+    /**
+     * 获取当前的网络类型
+     * @param context
+     * @return
+     */
+    public static int getConnectedType(Context context) {
+        if (context != null) {
+            ConnectivityManager mConnectivityManager = (ConnectivityManager) context
+                    .getSystemService(Context.CONNECTIVITY_SERVICE);
+            NetworkInfo mNetworkInfo = mConnectivityManager.getActiveNetworkInfo();
+            if (mNetworkInfo != null && mNetworkInfo.isAvailable()) {
+                return mNetworkInfo.getType();
+            }
+        }
+        return -1;
     }
 }

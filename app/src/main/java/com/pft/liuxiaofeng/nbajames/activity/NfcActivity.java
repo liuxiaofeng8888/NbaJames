@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 
 import com.pft.liuxiaofeng.nbajames.R;
 
@@ -24,6 +25,11 @@ public class NfcActivity extends BaseActivity {
 
     @Override
     protected void initView() {
+
+    }
+
+    @Override
+    protected void initToolbar(TextView tvToolbar) {
 
     }
 

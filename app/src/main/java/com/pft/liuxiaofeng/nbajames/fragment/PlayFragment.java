@@ -93,4 +93,9 @@ public class PlayFragment extends BaseFragment {
     void initToolbar(TextView tvToolbar) {
         tvToolbar.setText("play");
     }
+
+    @Override
+    public void onClick(View v) {
+
+    }
 }

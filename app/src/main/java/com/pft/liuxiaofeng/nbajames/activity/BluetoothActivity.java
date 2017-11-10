@@ -14,6 +14,7 @@ import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.pft.liuxiaofeng.nbajames.R;
 import com.pft.liuxiaofeng.nbajames.utils.CommonUtils;
@@ -72,6 +73,11 @@ public class BluetoothActivity extends BaseActivity implements View.OnClickListe
         btnServiceDiscovery.setOnClickListener(this);
         btnPrint.setOnClickListener(this);
         btnBlueClose.setOnClickListener(this);
+    }
+
+    @Override
+    protected void initToolbar(TextView tvToolbar) {
+
     }
 
     /**

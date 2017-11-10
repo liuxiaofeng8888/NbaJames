@@ -49,6 +49,11 @@ public class TeamInfoDetailActivity extends BaseActivity {
         teamStadiumsInfo = (TextView) findViewById(R.id.tv_team_stadiums_info);
     }
 
+    @Override
+    protected void initToolbar(TextView tvToolbar) {
+
+    }
+
     /**
      * 从网络获取球队信息数据
      */

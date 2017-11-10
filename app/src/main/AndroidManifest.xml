@@ -14,7 +14,6 @@
     <uses-feature
         android:name="android.hardware.bluetooth_le"
         android:required="false" />
-
     <uses-feature android:name="android.hardware.location.gps" />
 
     <application
@@ -54,8 +53,9 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
         <activity android:name=".activity.BluetoothActivity" />
+        <activity android:name=".activity.customview.WaterWaveViewDisplay" />
+        <activity android:name=".activity.customview.PipChartVIewDIsplay"></activity>
     </application>
 
 </manifest>

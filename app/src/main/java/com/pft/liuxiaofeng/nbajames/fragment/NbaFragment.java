@@ -64,7 +64,7 @@ public class NbaFragment extends BaseFragment {
         rv.addItemDecoration(new DividerItemDecoration(activity, DividerItemDecoration.VERTICAL));
         rv.setAdapter(new NbaInfoAdapter(data, activity));
 
-        Observable<String> observable = RxRequest.createStringRequest().getAllTeamInfo(key);
+        Observable<String> observable = RxRequest.createStringRequest(activity.getApplicationContext()).getAllTeamInfo(key);
         observable.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<String>() {
@@ -131,5 +131,10 @@ public class NbaFragment extends BaseFragment {
     public void onDestroy() {
         super.onDestroy();
         Log.e("onDestroy", "invoke");
+    }
+
+    @Override
+    public void onClick(View v) {
+
     }
 }

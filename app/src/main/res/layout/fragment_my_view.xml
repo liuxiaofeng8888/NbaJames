@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <include layout="@layout/include_toolbar" />
 
-    <com.pft.liuxiaofeng.nbajames.view.WaterWaveView2
+    <Button
+        android:id="@+id/btn_water_wave"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="水波紋效果"/>
+
+    <Button
+        android:id="@+id/btn_pipchart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="饼状图"/>
 </LinearLayout>

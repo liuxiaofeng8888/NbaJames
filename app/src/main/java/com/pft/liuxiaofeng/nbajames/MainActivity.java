@@ -11,6 +11,7 @@ import android.os.IBinder;
 import android.os.RemoteException;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.android.debug.hv.ViewServer;
 import com.pft.liuxiaofeng.nbajames.activity.BaseActivity;
@@ -78,6 +79,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         btnMyView.setOnClickListener(this);
         btnService.setOnClickListener(this);
         btnHomePlay.setOnClickListener(this);
+    }
+
+    @Override
+    protected void initToolbar(TextView tvToolbar) {
+
     }
 
     private void initFragment() {
@@ -165,7 +171,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 btnMyView.setTextColor(getResources().getColor(R.color.colorPrimary));
                 btnService.setTextColor(getResources().getColor(R.color.colorAccent));
                 break;
-            case R.id.btn_home_play:
+
+            case R.id.btn_home_play: //点击play进入playfragment
                 if (!playFragment.isAdded()){
                     fragmentTransaction.add(R.id.fragment,playFragment);
                 }else {
@@ -183,6 +190,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 btnMyView.setTextColor(getResources().getColor(R.color.colorPrimary));
                 btnService.setTextColor(getResources().getColor(R.color.colorPrimary));
                 break;
+
             default:
                 break;
         }
