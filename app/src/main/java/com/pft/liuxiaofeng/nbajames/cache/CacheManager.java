@@ -1,6 +1,10 @@
 package com.pft.liuxiaofeng.nbajames.cache;
 
 import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.util.Log;
+
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -11,7 +15,8 @@ import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-import okhttp3.internal.cache.DiskLruCache;
+import okhttp3.Cache;
+
 
 /**
  * @author :Little Pidding
@@ -45,6 +50,18 @@ public final class CacheManager {
 
     private CacheManager() {
         File diskCacheDir = getDiskCacheDir(context, CACHE_DIR);
+        if (!diskCacheDir.exists()) {
+            boolean b = diskCacheDir.mkdirs();
+            Log.d(TAG, "!diskCacheDir.exists() --- diskCacheDir.mkdirs()=" + b);
+        }
+        if (diskCacheDir.getUsableSpace() > DISK_CACHE_SIZE) {
+            try {
+                mDiskLruCache = DiskLruCache.open(diskCacheDir, getAppVersion(context),1,DISK_CACHE_SIZE);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            Log.d(TAG, "mDiskLruCache created");
+        }
     }
 
     /**
@@ -52,11 +69,11 @@ public final class CacheManager {
      */
     public void putCache(String key, String value) {
         if (mDiskLruCache == null) return;
-        ;
+
         OutputStream outputStream = null;
         try {
             DiskLruCache.Editor editor = mDiskLruCache.edit(encryptMD5(key));
-            outputStream = (OutputStream) editor.newSink(DISK_CACHE_INDEX);
+            outputStream = editor.newOutputStream(DISK_CACHE_INDEX);
             outputStream.write(value.getBytes());
             outputStream.flush();
             editor.commit();
@@ -75,7 +92,7 @@ public final class CacheManager {
     }
 
     /**
-     * 异步设置huancun
+     * 异步设置缓存
      */
     public void setCache(final String key, final String value) {
         new Thread() {
@@ -99,7 +116,7 @@ public final class CacheManager {
         try {
             DiskLruCache.Snapshot snapshot = mDiskLruCache.get(encryptMD5(key));
             if (snapshot != null) {
-                fis = (FileInputStream) snapshot.getSource(DISK_CACHE_INDEX);
+                fis = (FileInputStream) snapshot.getInputStream(DISK_CACHE_INDEX);
                 bos = new ByteArrayOutputStream();
                 byte[] buf = new byte[1024];
                 int len;
@@ -111,8 +128,8 @@ public final class CacheManager {
             }
         } catch (IOException e) {
             e.printStackTrace();
-        }finally {
-            if (fis!=null){
+        } finally {
+            if (fis != null) {
                 try {
                     fis.close();
                 } catch (IOException e) {
@@ -120,7 +137,7 @@ public final class CacheManager {
                 }
             }
 
-            if (bos !=null){
+            if (bos != null) {
                 try {
                     bos.close();
                 } catch (IOException e) {
@@ -133,9 +150,16 @@ public final class CacheManager {
     /**
      * 异步获取缓存
      */
-//    private void getCache(final String key,final Cache){
-//
-//    }
+    private void getCache(final String key, final EnhancedCallback callback){
+        new Thread(){
+            @Override
+            public void run() {
+                super.run();
+                String cache = getCache(key);
+                callback.onGetCache(cache);
+            }
+        }.start();
+    }
 
     /**
      * 移出缓存
@@ -187,4 +211,17 @@ public final class CacheManager {
         return string;
     }
 
+    /**
+     * 获取APP版本号
+     */
+    private int getAppVersion(Context context) {
+        PackageManager packageManager = context.getPackageManager();
+        try {
+            PackageInfo packageInfo = packageManager.getPackageInfo(context.getPackageName(), 0);
+            return packageInfo == null ? 0 : packageInfo.versionCode;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
 }
