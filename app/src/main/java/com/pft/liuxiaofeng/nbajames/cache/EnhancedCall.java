@@ -94,7 +94,7 @@ public class EnhancedCall<T> {
                     buffer.close();
                 }
 
-                String cache = CacheManager.getInstance().getCache(stringBuilder.toString());
+                String cache = CacheManager.getInstance(context).getCache(stringBuilder.toString());
                 Log.d(CacheManager.TAG, "get cache->" + cache);
 
                 if (!TextUtils.isEmpty(cache) && dataClassName != null) {

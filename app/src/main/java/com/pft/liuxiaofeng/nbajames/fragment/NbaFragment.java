@@ -3,6 +3,8 @@ package com.pft.liuxiaofeng.nbajames.fragment;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -12,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.bartoszlipinski.recyclerviewheader2.RecyclerViewHeader;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
@@ -25,6 +28,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import cn.trinea.android.view.autoscrollviewpager.AutoScrollViewPager;
 import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -41,13 +45,18 @@ public class NbaFragment extends BaseFragment {
     private RecyclerView rv;
     private View rootView;
     private Activity activity;
+    private RecyclerViewHeader recyclerViewHeader;
+    private AutoScrollViewPager autoScrollViewPager;
     private ArrayList<AllTeamInfo.ResultBean.TeamInfoBean> data = new ArrayList<>();
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        activity = getActivity();
         rootView = inflater.inflate(R.layout.fragment_nba, container, false);
         initView();
+        getData();
+        recyclerViewHeader.attachTo(rv);
         return rootView;
     }
 
@@ -56,14 +65,18 @@ public class NbaFragment extends BaseFragment {
         super.onActivityCreated(savedInstanceState);
     }
 
+
     @Override
     public void onResume() {
         super.onResume();
-        activity = getActivity();
-        rv.setLayoutManager(new LinearLayoutManager(activity));
-        rv.addItemDecoration(new DividerItemDecoration(activity, DividerItemDecoration.VERTICAL));
-        rv.setAdapter(new NbaInfoAdapter(data, activity));
 
+
+    }
+
+    /**
+     * 发出网络请求获取nba数据
+     */
+    private void getData() {
         Observable<String> observable = RxRequest.createStringRequest(activity.getApplicationContext()).getAllTeamInfo(key);
         observable.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -112,14 +125,47 @@ public class NbaFragment extends BaseFragment {
     @Override
     public void onPause() {
         super.onPause();
+        autoScrollViewPager.stopAutoScroll();
     }
 
 
     @Override
     void initView() {
         rv = (RecyclerView) rootView.findViewById(R.id.rv_nba_info);
+        rv.setLayoutManager(new LinearLayoutManager(activity));
+        rv.addItemDecoration(new DividerItemDecoration(activity, DividerItemDecoration.VERTICAL));
+        rv.setAdapter(new NbaInfoAdapter(data, activity));
         tvToolbar = (TextView) rootView.findViewById(R.id.tv_toolbar);
         initToolbar(tvToolbar);
+        recyclerViewHeader = (RecyclerViewHeader) rootView.findViewById(R.id.recyclerView_header);
+        autoScrollViewPager = (AutoScrollViewPager) rootView.findViewById(R.id.autoScrollViewPager);
+
+        autoScrollViewPager.setAdapter(new myPagerAdapter());
+        autoScrollViewPager.startAutoScroll(3000);
+        autoScrollViewPager.setInterval(3000);
+        autoScrollViewPager.setDirection(AutoScrollViewPager.RIGHT);
+        autoScrollViewPager.setCycle(true);
+        autoScrollViewPager.setScrollDurationFactor(20);
+        autoScrollViewPager.setStopScrollWhenTouch(true);
+        autoScrollViewPager.setSlideBorderMode(AutoScrollViewPager.SLIDE_BORDER_MODE_CYCLE);
+        autoScrollViewPager.setBorderAnimation(false);
+
+        autoScrollViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+//                UIUtils.showToast("" + position);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
     }
 
     @Override
@@ -136,5 +182,31 @@ public class NbaFragment extends BaseFragment {
     @Override
     public void onClick(View v) {
 
+    }
+
+
+    private class myPagerAdapter extends PagerAdapter {
+
+        @Override
+        public int getCount() {
+            return 5;
+        }
+
+        @Override
+        public Object instantiateItem(ViewGroup container, int position) {
+            View view = View.inflate(activity, R.layout.image_view, null);
+            container.addView(view);
+            return view;
+        }
+
+        @Override
+        public void destroyItem(ViewGroup container, int position, Object object) {
+            container.removeView((View) object);
+        }
+
+        @Override
+        public boolean isViewFromObject(View view, Object object) {
+            return view == object;
+        }
     }
 }

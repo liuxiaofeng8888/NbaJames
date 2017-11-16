@@ -24,7 +24,7 @@ import okhttp3.Cache;
  */
 
 public final class CacheManager {
-    private Context context;
+    public static Context mContext;
 
     public static final String TAG = "CacheManager";
 
@@ -39,7 +39,8 @@ public final class CacheManager {
 
     private volatile static CacheManager mCacheManager;
 
-    public static CacheManager getInstance() {
+    public static CacheManager getInstance(Context context) {
+        mContext = context;
         if (mCacheManager == null) {
             synchronized (CacheManager.class) {
                 mCacheManager = new CacheManager();
@@ -49,14 +50,14 @@ public final class CacheManager {
     }
 
     private CacheManager() {
-        File diskCacheDir = getDiskCacheDir(context, CACHE_DIR);
+        File diskCacheDir = getDiskCacheDir(mContext, CACHE_DIR);
         if (!diskCacheDir.exists()) {
             boolean b = diskCacheDir.mkdirs();
             Log.d(TAG, "!diskCacheDir.exists() --- diskCacheDir.mkdirs()=" + b);
         }
         if (diskCacheDir.getUsableSpace() > DISK_CACHE_SIZE) {
             try {
-                mDiskLruCache = DiskLruCache.open(diskCacheDir, getAppVersion(context),1,DISK_CACHE_SIZE);
+                mDiskLruCache = DiskLruCache.open(diskCacheDir, getAppVersion(mContext),1,DISK_CACHE_SIZE);
             } catch (IOException e) {
                 e.printStackTrace();
             }
