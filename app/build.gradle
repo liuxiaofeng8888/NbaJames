@@ -64,4 +64,6 @@ dependencies {
     compile 'com.github.romainguy:ViewServer:017c01cd512cac3ec054d9eee05fc48c5a9d2de'
     testCompile 'junit:junit:4.12'
     compile 'com.github.PhilJay:MPAndroidChart:v3.0.2'
+    compile 'com.youth.banner:banner:1.4.10'  //最新版本
+    compile 'com.android.support:cardview-v7:22.2.1'
 }

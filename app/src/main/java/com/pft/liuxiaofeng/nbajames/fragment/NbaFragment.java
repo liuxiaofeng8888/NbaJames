@@ -3,7 +3,9 @@ package com.pft.liuxiaofeng.nbajames.fragment;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.view.PagerAdapter;
 import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -19,16 +21,15 @@ import com.pft.liuxiaofeng.nbajames.R;
 import com.pft.liuxiaofeng.nbajames.adapter.NbaInfoAdapter;
 import com.pft.liuxiaofeng.nbajames.bean.AllTeamInfo;
 import com.pft.liuxiaofeng.nbajames.services.RxRequest;
-import com.pft.liuxiaofeng.nbajames.utils.Constant;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
@@ -42,12 +43,16 @@ public class NbaFragment extends BaseFragment {
     private View rootView;
     private Activity activity;
     private ArrayList<AllTeamInfo.ResultBean.TeamInfoBean> data = new ArrayList<>();
+    private List<Integer> images = new ArrayList<>();//图片集合  ;
+    private NbaInfoAdapter nbaInfoAdapter;
+//    private int[] images = {R.drawable.bg_home};//图片集合  ;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_nba, container, false);
         initView();
+
         return rootView;
     }
 
@@ -60,10 +65,33 @@ public class NbaFragment extends BaseFragment {
     public void onResume() {
         super.onResume();
         activity = getActivity();
+//        images.add("http://www.zbjuran.com/uploads/allimg/170725/1506053064-0.jpg");
+        images.add(R.drawable.snap);
+        images.add(R.drawable.mainlogo);
+//        images.add("http://www.zbjuran.com/uploads/allimg/170826/14-1FR6135245.jpg");
+//        images.add("http://www.zbjuran.com/uploads/allimg/171030/2-1G030114644.jpg");
+//        images.add("http://www.zbjuran.com/uploads/allimg/170717/15293T939-0.jpg");
         rv.setLayoutManager(new LinearLayoutManager(activity));
+        getData();
+        //横向布局
+//        GridLayoutManager gridLayoutManager = new GridLayoutManager(activity,4);
+//        rv.setLayoutManager(gridLayoutManager);
+//        gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+//            @Override
+//            public int getSpanSize(int position) {
+//                return nbaInfoAdapter.isTittle(position) ? 4 : 1; //如果是headerview  一个item显示4列
+//            }
+//        });
         rv.addItemDecoration(new DividerItemDecoration(activity, DividerItemDecoration.VERTICAL));
-        rv.setAdapter(new NbaInfoAdapter(data, activity));
+        AllTeamInfo.ResultBean.TeamInfoBean teamInfoBean = new AllTeamInfo.ResultBean.TeamInfoBean();
+        teamInfoBean.setCity("this is title:1");
+        data.add(0, teamInfoBean);
 
+
+
+    }
+
+    private void getData() {
         Observable<String> observable = RxRequest.createStringRequest(activity.getApplicationContext()).getAllTeamInfo(key);
         observable.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -93,7 +121,8 @@ public class NbaFragment extends BaseFragment {
                             teamInfoBean.setIntro(info.get(i + "").getIntro());
                             teamInfoBean.setId(info.get(i + "").getId());
                             data.add(teamInfoBean);
-                            rv.setAdapter(new NbaInfoAdapter(data, activity));
+                            nbaInfoAdapter = new NbaInfoAdapter(data, images, activity);
+                            rv.setAdapter(nbaInfoAdapter);
                         }
                     }
 
