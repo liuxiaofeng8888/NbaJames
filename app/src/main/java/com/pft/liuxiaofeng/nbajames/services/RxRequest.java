@@ -3,7 +3,7 @@ package com.pft.liuxiaofeng.nbajames.services;
 import android.content.Context;
 import android.support.annotation.Nullable;
 
-import com.pft.liuxiaofeng.nbajames.cache.MyCacheIntercepter;
+import com.pft.liuxiaofeng.nbajames.cache.MyCacheInterceptor;
 
 import java.io.File;
 import java.io.IOException;
@@ -42,7 +42,7 @@ public class RxRequest {
     public static NbaServices createStringRequest(Context context) {
         OkHttpClient client = new OkHttpClient.Builder()
                 .cache(new Cache(new File(context.getCacheDir(), "nbaJames_cache"), 10 * 1024 * 1024))
-                .addInterceptor(new MyCacheIntercepter(context))
+                .addInterceptor(new MyCacheInterceptor(context))
                 .addInterceptor(new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
                 .build();
 
@@ -75,7 +75,7 @@ public class RxRequest {
     public static NbaServices createGsonRequest() {
         OkHttpClient client = new OkHttpClient.Builder()
                 .cache(new Cache(new File(context.getCacheDir(), "nbaJames_cache"), 10 * 1024 * 1024))
-                .addInterceptor(new MyCacheIntercepter(context))
+                .addInterceptor(new MyCacheInterceptor(context))
                 .addInterceptor(new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
                 .build();
 

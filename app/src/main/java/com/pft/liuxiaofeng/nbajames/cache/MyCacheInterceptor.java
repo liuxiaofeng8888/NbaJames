@@ -17,10 +17,10 @@ import okhttp3.Response;
  * @since 17-11-10.
  */
 
-public class MyCacheIntercepter implements Interceptor {
+public class MyCacheInterceptor implements Interceptor {
     private Context context;
 
-    public MyCacheIntercepter(Context context) {
+    public MyCacheInterceptor(Context context) {
         this.context = context;
     }
 
