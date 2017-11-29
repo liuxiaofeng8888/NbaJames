@@ -28,8 +28,8 @@ public class NbaInfoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
     private static final int TYPE_IMAGE = 0;
     private static final int TYPE_GROUP = 1;
-    private List<Integer> images = new ArrayList<>();
-    private List<String> imagesTitle = new ArrayList<>();
+    private List<Integer> images ;
+    private List<String> imagesTitle ;
     private ArrayList<AllTeamInfo.ResultBean.TeamInfoBean> data;
     private Activity activity;
 
@@ -43,10 +43,11 @@ public class NbaInfoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         return false;
     }
 
-    public NbaInfoAdapter(ArrayList<AllTeamInfo.ResultBean.TeamInfoBean> data, List<Integer> images, Activity activity) {
+    public NbaInfoAdapter(ArrayList<AllTeamInfo.ResultBean.TeamInfoBean> data, List<Integer> images,List<String> imagesTitle, Activity activity) {
         this.data = data;
         this.activity = activity;
         this.images = images;
+        this.imagesTitle = imagesTitle;
     }
 
     @Override
@@ -57,7 +58,6 @@ public class NbaInfoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                 ViewHolder vhImage = new ViewHolder(vImage);
                 return vhImage;
             case TYPE_GROUP:
-//                ViewGroup view = (ViewGroup) View.inflate(activity, R.layout.item_info, null);
                 ViewGroup view = (ViewGroup) View.inflate(activity, R.layout.you, null);
                 return new GroupViewHolder(view);
         }
@@ -98,8 +98,6 @@ public class NbaInfoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                 //设置指示器位置（当banner模式中有指示器时）
                 groupViewHolder.banner.setIndicatorGravity(BannerConfig.CENTER);
                 //设置标题集合（当banner样式有显示title时）
-                imagesTitle.add("标无管理");
-                imagesTitle.add("手机抄表");
                 groupViewHolder.banner.setBannerTitles(imagesTitle);
 
                 //banner设置方法全部调用完毕时最后调用

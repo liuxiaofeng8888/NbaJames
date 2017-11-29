@@ -72,9 +72,9 @@ public class RxRequest {
      *
      * @return retrofit的调用方法的接口
      */
-    public static NbaServices createGsonRequest() {
+    public static NbaServices createGsonRequest(Context context) {
         OkHttpClient client = new OkHttpClient.Builder()
-                .cache(new Cache(new File(context.getCacheDir(), "nbaJames_cache"), 10 * 1024 * 1024))
+                .cache(new Cache(new File(context.getCacheDir(), "nbaJames_cache2"), 10 * 1024 * 1024))
                 .addInterceptor(new MyCacheInterceptor(context))
                 .addInterceptor(new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
                 .build();

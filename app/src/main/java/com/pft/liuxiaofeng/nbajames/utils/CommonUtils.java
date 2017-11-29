@@ -12,6 +12,7 @@ import java.text.NumberFormat;
  */
 
 public class CommonUtils {
+    private static Toast toast;
 
     /**
      * 判断一个字符串是否为空
@@ -25,8 +26,23 @@ public class CommonUtils {
     }
 
     public static void showToast(Context context, String msg) {
-        Toast.makeText(context.getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
+        if (toast == null) {
+            toast = Toast.makeText(context.getApplicationContext(), msg, Toast.LENGTH_SHORT);
+        } else {
+            toast.setText(msg);
+        }
+        toast.show();
     }
+
+    public static void showLongToast(Context context, String msg) {
+        if (toast == null) {
+            toast = Toast.makeText(context, msg, Toast.LENGTH_LONG);
+        } else {
+            toast.setText(msg);
+        }
+        toast.show();
+    }
+
 
     /**
      * 计算百分比
@@ -122,6 +138,7 @@ public class CommonUtils {
 
     /**
      * 获取当前的网络类型
+     *
      * @param context
      * @return
      */

@@ -58,7 +58,7 @@ public class TeamInfoDetailActivity extends BaseActivity {
      * 从网络获取球队信息数据
      */
     private void getData() {
-        Observable<TeamInfoDetail> observable = RxRequest.createGsonRequest().getTeamInfoDetail(key, teamId);
+        Observable<TeamInfoDetail> observable = RxRequest.createGsonRequest(activity).getTeamInfoDetail(key, teamId);
         observable.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<TeamInfoDetail>() {

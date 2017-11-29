@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/rl_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.pft.liuxiaofeng.nbajames.MainActivity"
-    android:orientation="vertical">
+    >
 
     <FrameLayout
         android:id="@+id/fragment"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_above="@+id/ll_main_bottom" />
 
     <LinearLayout
@@ -18,8 +18,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_gravity="bottom"
-        android:gravity="bottom"
         android:orientation="horizontal">
 
         <Button
@@ -61,4 +59,4 @@
     <!--<com.pft.liuxiaofeng.nbajames.view.WaterWaveView2-->
     <!--android:layout_width="wrap_content"-->
     <!--android:layout_height="wrap_content" />-->
-</LinearLayout>
+</RelativeLayout>

@@ -44,6 +44,7 @@ public class NbaFragment extends BaseFragment {
     private Activity activity;
     private ArrayList<AllTeamInfo.ResultBean.TeamInfoBean> data = new ArrayList<>();
     private List<Integer> images = new ArrayList<>();//图片集合  ;
+    private List<String> imagesTitle = new ArrayList<>();//图片标题集合  ;
     private NbaInfoAdapter nbaInfoAdapter;
 //    private int[] images = {R.drawable.bg_home};//图片集合  ;
 
@@ -52,22 +53,12 @@ public class NbaFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_nba, container, false);
         initView();
-
-        return rootView;
-    }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
         activity = getActivity();
 //        images.add("http://www.zbjuran.com/uploads/allimg/170725/1506053064-0.jpg");
         images.add(R.drawable.snap);
         images.add(R.drawable.mainlogo);
+        imagesTitle.add("标无管理");
+        imagesTitle.add("手机抄表");
 //        images.add("http://www.zbjuran.com/uploads/allimg/170826/14-1FR6135245.jpg");
 //        images.add("http://www.zbjuran.com/uploads/allimg/171030/2-1G030114644.jpg");
 //        images.add("http://www.zbjuran.com/uploads/allimg/170717/15293T939-0.jpg");
@@ -86,9 +77,18 @@ public class NbaFragment extends BaseFragment {
         AllTeamInfo.ResultBean.TeamInfoBean teamInfoBean = new AllTeamInfo.ResultBean.TeamInfoBean();
         teamInfoBean.setCity("this is title:1");
         data.add(0, teamInfoBean);
+        Log.e(TAG,"oncreateview");
+        return rootView;
+    }
 
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+    }
 
-
+    @Override
+    public void onResume() {
+        super.onResume();
     }
 
     private void getData() {
@@ -121,7 +121,8 @@ public class NbaFragment extends BaseFragment {
                             teamInfoBean.setIntro(info.get(i + "").getIntro());
                             teamInfoBean.setId(info.get(i + "").getId());
                             data.add(teamInfoBean);
-                            nbaInfoAdapter = new NbaInfoAdapter(data, images, activity);
+
+                            nbaInfoAdapter = new NbaInfoAdapter(data, images,imagesTitle, activity);
                             rv.setAdapter(nbaInfoAdapter);
                         }
                     }

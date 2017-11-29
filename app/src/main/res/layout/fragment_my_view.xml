@@ -10,11 +10,24 @@
         android:id="@+id/btn_water_wave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="水波紋效果"/>
+        android:background="@drawable/textview_oval"
+        android:text="波纹" />
 
     <Button
         android:id="@+id/btn_pipchart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="饼状图"/>
+        android:text="饼状图" />
+
+    <Button
+        android:id="@+id/btn_my_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="自定义view" />
+
+    <com.pft.liuxiaofeng.nbajames.view.MyFloatActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:focusable="true" />
 </LinearLayout>
