@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.pft.liuxiaofeng.nbajames.R;
 import com.pft.liuxiaofeng.nbajames.activity.CustomVIew;
+import com.pft.liuxiaofeng.nbajames.activity.DataBindingDemoActivity;
 import com.pft.liuxiaofeng.nbajames.activity.customview.PipChartVIewDIsplay;
 import com.pft.liuxiaofeng.nbajames.activity.customview.WaterWaveViewDisplay;
 import com.pft.liuxiaofeng.nbajames.utils.CommonUtils;
@@ -26,6 +27,7 @@ public class MyVIewFragment extends BaseFragment {
     private Button btnWaterWave; //水波紋按钮
     private Button btnPipChart; //饼状图按钮
     private Button btnMyView; //我的自定义view
+    private Button btnDatabinding; //databinding
     private Intent intent;
 
     @Nullable
@@ -43,6 +45,7 @@ public class MyVIewFragment extends BaseFragment {
         btnWaterWave = (Button) view.findViewById(R.id.btn_water_wave);
         btnPipChart = (Button) view.findViewById(R.id.btn_pipchart);
         btnMyView = (Button) view.findViewById(R.id.btn_my_view);
+        btnDatabinding = (Button) view.findViewById(R.id.btn_databinding);
         initToolbar(tvToolbar);
     }
 
@@ -57,6 +60,7 @@ public class MyVIewFragment extends BaseFragment {
         btnWaterWave.setOnClickListener(this);
         btnPipChart.setOnClickListener(this);
         btnMyView.setOnClickListener(this);
+        btnDatabinding.setOnClickListener(this);
     }
 
     /**
@@ -82,6 +86,10 @@ public class MyVIewFragment extends BaseFragment {
                 break;
             case R.id.btn_my_view:
                 intent.setClass(getActivity(),CustomVIew.class);
+                startActivity(intent);
+                break;
+            case R.id.btn_databinding:
+                intent.setClass(getActivity(), DataBindingDemoActivity.class);
                 startActivity(intent);
                 break;
             default:

@@ -56,7 +56,8 @@
         <activity android:name=".activity.BluetoothActivity" />
         <activity android:name=".activity.customview.WaterWaveViewDisplay" />
         <activity android:name=".activity.customview.PipChartVIewDIsplay" />
-        <activity android:name=".activity.CustomVIew"></activity>
+        <activity android:name=".activity.CustomVIew" />
+        <activity android:name=".activity.DataBindingDemoActivity"></activity>
     </application>
 
 </manifest>

@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'com.didi.virtualapk.host'
 android {
     compileSdkVersion 25
-    buildToolsVersion '26.0.2'
+    buildToolsVersion '27.0.2'
     defaultConfig {
         applicationId "com.pft.liuxiaofeng.nbajames"
         minSdkVersion 21
@@ -15,6 +15,11 @@ android {
         cruncherEnabled = false
         useNewCruncher = false
     }
+
+    dataBinding {
+        enabled = true
+    }
+
 
     buildTypes {
         release {
