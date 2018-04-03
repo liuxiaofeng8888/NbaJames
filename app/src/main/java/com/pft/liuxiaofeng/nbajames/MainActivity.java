@@ -9,6 +9,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.os.RemoteException;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -197,4 +198,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         fragmentTransaction.commit();
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.e(TAG, "onStop: " );
+    }
 }

@@ -67,6 +67,7 @@ public class PlayFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(activity, NfcActivity.class));
+                activity.overridePendingTransition(0,0);
             }
         });
         btnPligin.setOnClickListener(new View.OnClickListener() {

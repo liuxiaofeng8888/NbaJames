@@ -3,6 +3,10 @@ package com.pft.liuxiaofeng.nbajames.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.style.BackgroundColorSpan;
+import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,6 +33,7 @@ public class MyVIewFragment extends BaseFragment {
     private Button btnMyView; //我的自定义view
     private Button btnDatabinding; //databinding
     private Intent intent;
+    private TextView btnNumbers;
 
     @Nullable
     @Override
@@ -36,6 +41,7 @@ public class MyVIewFragment extends BaseFragment {
         view = inflater.inflate(R.layout.fragment_my_view, container, false);
         initView();
         setListener();
+        initData();
         return view;
     }
 
@@ -46,7 +52,17 @@ public class MyVIewFragment extends BaseFragment {
         btnPipChart = (Button) view.findViewById(R.id.btn_pipchart);
         btnMyView = (Button) view.findViewById(R.id.btn_my_view);
         btnDatabinding = (Button) view.findViewById(R.id.btn_databinding);
+        btnNumbers = (TextView) view.findViewById(R.id.tv_numbers);
         initToolbar(tvToolbar);
+    }
+
+    private void initData(){
+        SpannableString string = new SpannableString("123456789");
+        string.setSpan(new ForegroundColorSpan(getActivity().getResources().getColor(R.color.colorAccent)),
+                0,5, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        string.setSpan(new BackgroundColorSpan(getActivity().getResources().getColor(R.color.gray)),
+                0,5,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        btnNumbers.setText(string);
     }
 
     @Override
@@ -61,6 +77,7 @@ public class MyVIewFragment extends BaseFragment {
         btnPipChart.setOnClickListener(this);
         btnMyView.setOnClickListener(this);
         btnDatabinding.setOnClickListener(this);
+        btnNumbers.setOnClickListener(this);
     }
 
     /**
