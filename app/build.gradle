@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.didi.virtualapk.host'
 android {
-    compileSdkVersion 25
+    compileSdkVersion 27
     buildToolsVersion '27.0.2'
     defaultConfig {
         applicationId "com.pft.liuxiaofeng.nbajames"
@@ -35,11 +35,11 @@ android {
 //    }
 
     // cmake构建的配置文件
-    externalNativeBuild {
-        cmake {
-            path 'CMakeLists.txt'
-        }
-    }
+//    externalNativeBuild {
+//        cmake {
+//            path 'CMakeLists.txt'
+//        }
+//    }
 }
 
 dependencies {

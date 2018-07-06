@@ -43,9 +43,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     };
 
 
-    static {
-        System.loadLibrary("native-lib");
-    }
+//    static {
+//        System.loadLibrary("native-lib");
+//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
