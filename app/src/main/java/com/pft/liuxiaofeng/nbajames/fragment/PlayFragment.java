@@ -51,10 +51,10 @@ public class PlayFragment extends BaseFragment {
     void initView() {
         button = (Button) view.findViewById(R.id.btn_auto_link);
 //        lineChart = (LineChart) view.findViewById(R.id.line_chart);
-        btnPligin = (Button) view.findViewById(R.id.btn_plugin);
-        btnNfc = (Button) view.findViewById(R.id.btn_nfc);
-        btnBluetooth = (Button) view.findViewById(R.id.btn_bluetooth);
-        tvToolbar = (TextView) view.findViewById(R.id.tv_toolbar);
+        btnPligin = view.findViewById(R.id.btn_plugin);
+        btnNfc = view.findViewById(R.id.btn_nfc);
+        btnBluetooth = view.findViewById(R.id.btn_bluetooth);
+        tvToolbar = view.findViewById(R.id.tv_toolbar);
 
         initToolbar(tvToolbar);
         btnBluetooth.setOnClickListener(new View.OnClickListener() {

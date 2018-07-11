@@ -147,8 +147,8 @@ public class NbaFragment extends BaseFragment {
 
     @Override
     void initView() {
-        rv = (RecyclerView) rootView.findViewById(R.id.rv_nba_info);
-        tvToolbar = (TextView) rootView.findViewById(R.id.tv_toolbar);
+        rv = rootView.findViewById(R.id.rv_nba_info);
+        tvToolbar = rootView.findViewById(R.id.tv_toolbar);
         initToolbar(tvToolbar);
     }
 

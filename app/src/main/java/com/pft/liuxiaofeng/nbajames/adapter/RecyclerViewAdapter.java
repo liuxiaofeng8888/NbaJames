@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import com.pft.liuxiaofeng.nbajames.R;
 import com.pft.liuxiaofeng.nbajames.databinding.ItemDatabindingDemoBinding;
 
-import java.util.List;
 
 /**
  * Created by liuxiaofeng on 17-12-22.

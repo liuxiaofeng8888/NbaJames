@@ -47,12 +47,12 @@ public class MyVIewFragment extends BaseFragment {
 
     @Override
     public void initView() {
-        tvToolbar = (TextView) view.findViewById(R.id.tv_toolbar);
-        btnWaterWave = (Button) view.findViewById(R.id.btn_water_wave);
-        btnPipChart = (Button) view.findViewById(R.id.btn_pipchart);
-        btnMyView = (Button) view.findViewById(R.id.btn_my_view);
-        btnDatabinding = (Button) view.findViewById(R.id.btn_databinding);
-        btnNumbers = (TextView) view.findViewById(R.id.tv_numbers);
+        tvToolbar = view.findViewById(R.id.tv_toolbar);
+        btnWaterWave = view.findViewById(R.id.btn_water_wave);
+        btnPipChart = view.findViewById(R.id.btn_pipchart);
+        btnMyView = view.findViewById(R.id.btn_my_view);
+        btnDatabinding = view.findViewById(R.id.btn_databinding);
+        btnNumbers = view.findViewById(R.id.tv_numbers);
         initToolbar(tvToolbar);
     }
 
