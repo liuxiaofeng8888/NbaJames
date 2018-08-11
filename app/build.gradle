@@ -47,6 +47,7 @@ dependencies {
     compile('com.tencent.tinker:tinker-android-lib:1.9.8')
     compile 'com.meituan.android.walle:library:1.1.6'
 }
+
 def gitSha() {
     try {
         String gitRev = 'git rev-parse --short HEAD'.execute(null, project.rootDir).text.trim()
@@ -58,6 +59,7 @@ def gitSha() {
         throw new GradleException("can't get git rev, you should add git to system path or just input test value, such as 'testTinkerId'")
     }
 }
+
 def javaVersion = JavaVersion.VERSION_1_7
 android {
     compileSdkVersion 26
@@ -65,6 +67,9 @@ android {
     compileOptions {
         sourceCompatibility javaVersion
         targetCompatibility javaVersion
+    }
+    lintOptions {
+        abortOnError false
     }
     dexOptions {
         jumboMode = true
@@ -146,7 +151,7 @@ android {
  */
 task doPython(type: Exec) {
     workingDir './'
-    commandLine "python","ApkResigner.py"
+    commandLine "python", "ApkResigner.py"
 }
 def bakPath = file("${buildDir}/bakApk/")
 /**
