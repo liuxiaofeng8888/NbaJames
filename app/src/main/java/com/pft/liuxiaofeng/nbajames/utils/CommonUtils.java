@@ -6,6 +6,8 @@ import android.net.NetworkInfo;
 import android.widget.Toast;
 
 import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Created by LittlePudding on 17-6-13.
@@ -152,5 +154,142 @@ public class CommonUtils {
             }
         }
         return -1;
+    }
+
+    /**
+     * 设置金额，添加元
+     * @return
+     */
+    public static String setAmount(Object amount) {
+
+        if (amount instanceof Double) {
+            //格式化double为两位小数
+            return formatDouble((Double) amount) + "元";
+        }
+        return amount + "元";
+    }
+
+    /**
+     * 格式化为两位小数
+     * @param num
+     * @return
+     */
+    public static String formatDouble(double num) {
+        java.text.DecimalFormat df = new java.text.DecimalFormat("#0.00");
+        return df.format(num);
+    }
+
+    /**
+     * null转换成空字符串
+     *
+     * @param str
+     * @return
+     */
+    public static String nullStrToEmpty(Object str) {
+        return (str == null ? "" : (str instanceof String ? (String) str : str.toString()));
+    }
+
+    /**
+     * 判断date距离当前多长时间
+     * @param date
+     * @return
+     */
+    public static String getTimeLine(Date date){
+        long now = new Date().getTime();
+        long da1 = date.getTime();
+        String timeline = "";
+        if(now>da1){//之前
+            long a = now-da1;
+            if(a/1000==0){
+                timeline = "刚刚";
+            }else {
+                long a1 = a/1000;
+                if(a1<60){
+                    timeline = a1+"秒前";
+                } else{
+                    long b = a1/60;
+                    if(b<60){
+                        if(b>30){
+                            timeline = "半小时前";
+                        }else{
+                            timeline = b+"分钟前";
+                        }
+                    }else{
+                        long c = b/60;
+                        if(c<24){
+                            timeline = c+"小时前";
+                        }else {
+                            long d = c/24;
+                            if(d<30){
+                                if(d>7){
+                                    timeline = (d/7)+"周前";
+                                }else{
+                                    timeline = d+"天前";
+                                }
+                            } else{
+                                long e = d/30;
+                                if(e<12){
+                                    timeline = e+"月前";
+                                } else{
+                                    timeline = getTime(date, "yy/MM/dd");
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        } else {
+            long a = da1-now;
+            if(a/1000==0){
+                timeline = "刚刚";
+            }else {
+
+
+                long a1 = a/1000;{
+                    if(a1<60){
+                        timeline = a1+"秒后";
+                    } else{
+                        long b = a1/60;
+
+                        if(b<60){
+                            if(b==30){
+                                timeline = "半小时后";
+                            }else{
+                                timeline = b+"分钟后";
+                            }
+                        }else{
+                            long c = b/60;
+                            if(c<24){
+                                timeline = c+"小时后";
+                            }else {
+                                long d = c/24;
+                                if(d<30){
+                                    if(d%7==0){
+                                        timeline = (d/7)+"周后";
+                                    }else{
+                                        timeline = d+"天后";
+                                    }
+                                } else{
+                                    long e = d/30;
+                                    if(e<12){
+                                        timeline = e+"月后";
+                                    } else{
+                                        timeline = getTime(date,"yy/MM/dd");
+                                    }
+                                }
+
+                            }
+
+                        }
+                    }
+                }
+
+            }
+        }
+        return timeline;
+    }
+
+    public static String getTime(Date date,String format){
+        return new SimpleDateFormat(format).format(date);
     }
 }

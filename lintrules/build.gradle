@@ -1,6 +1,27 @@
 apply plugin: 'java'
+/**
+ * Lint-Registry是透露给lint工具的注册类的方法，
+ * 也就是PermissionIssueRegistry是lint工具的入口,同时也通过这个方法进行打jar包
+ */
+jar {
+    manifest {
+        attributes('Lint-Registry': 'com.example.lib.detector.MyIssueRegister')
+    }
+}
+
+// 创建了一个叫“lintJarOutput”的Gradle configuration，
+// 用于输出我们生成的jar包。在生成aar的模块 "lintaar" 的build.gradle中会引用此configuration。
+configurations {
+    lintJarOutput
+}
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    // 依赖于lint的规则的api
+    compile 'com.android.tools.lint:lint-api:25.0.0'
+    compile 'com.android.tools.lint:lint-checks:25.0.0'
+    testCompile 'com.android.tools.lint:lint-tests:24.5.0'
+    lintJarOutput files(jar)
+
 }
 
