@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.didi.virtualapk.host'
+//apply plugin: 'com.didi.virtualapk.host'
 //apply tinker插件
 //apply plugin: 'com.tencent.tinker.patch'
 apply plugin: 'walle'
@@ -13,33 +13,24 @@ walle {
 }
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    //    compile 'com.squareup.retrofit2:retrofit-adapters:2.3.0'
-    //    annotationProcessor 'com.github.bumptech.glide:compiler:4.2.0'
     compile 'com.github.PhilJay:MPAndroidChart:v3.0.2'
-    //最新版本
-    compile 'com.android.support:appcompat-v7:25.2.0'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.android.support:appcompat-v7:28.0.0'
     compile 'com.squareup.retrofit2:retrofit:2.3.0'
-    compile 'com.google.code.gson:gson:2.8.1'
-    compile 'com.squareup.retrofit2:converter-gson:2.0.1'
+    compile 'com.google.code.gson:gson:2.8.2'
+    compile 'com.squareup.retrofit2:converter-gson:2.3.0'
     compile 'com.squareup.okhttp3:logging-interceptor:3.8.0'
     compile 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
-    compile 'io.reactivex.rxjava2:rxjava:2.0.1'
+    compile 'io.reactivex.rxjava2:rxjava:2.1.7'
     compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
-    compile 'com.android.support:support-v4:25.2.0'
-    compile 'com.android.support:recyclerview-v7:25.2.0'
-    compile 'com.android.support:design:25.2.0'
+    compile 'com.android.support:support-v4:28.0.0'
+    compile 'com.android.support:recyclerview-v7:28.0.0'
+    compile 'com.android.support:design:28.0.0'
     compile 'com.squareup.retrofit2:converter-scalars:2.3.0'
     compile 'com.github.PhilJay:MPAndroidChart:v3.0.2'
-    compile 'com.didi.virtualapk:core:0.9.1'
-    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.github.bumptech.glide:glide:3.8.0'
     compile 'com.github.romainguy:ViewServer:017c01cd512cac3ec054d9eee05fc48c5a9d2de'
     compile 'com.youth.banner:banner:1.4.10'
-    compile 'com.android.support:cardview-v7:22.2.1'
-    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:cardview-v7:28.0.0'
     //可选，用于生成application类
     provided 'com.tencent.tinker:tinker-android-anno:1.9.8'
     //tinker的核心库
@@ -61,11 +52,11 @@ def gitSha() {
 
 def javaVersion = JavaVersion.VERSION_1_7
 android {
-    compileSdkVersion 27
-    buildToolsVersion '26.0.2'
+    compileSdkVersion 28
+    buildToolsVersion '28.0.2'
     compileOptions {
-        sourceCompatibility javaVersion
-        targetCompatibility javaVersion
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
     }
     lintOptions {
         abortOnError false
@@ -91,7 +82,7 @@ android {
 
     defaultConfig {
         applicationId "com.pft.liuxiaofeng.nbajames"
-        minSdkVersion 21
+        minSdkVersion 16
         targetSdkVersion 22
         versionCode 1
         versionName "1.0"

@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.didi.virtualapk.PluginManager;
+//import com.didi.virtualapk.PluginManager;
 import com.github.mikephil.charting.charts.LineChart;
 import com.pft.liuxiaofeng.nbajames.R;
 import com.pft.liuxiaofeng.nbajames.activity.BluetoothActivity;
@@ -76,7 +76,7 @@ public class PlayFragment extends BaseFragment {
                 String pluginPath = Environment.getExternalStorageDirectory().getAbsolutePath().concat("/Test.apk");
                 File plugin = new File(pluginPath);
                 try {
-                    PluginManager.getInstance(activity).loadPlugin(plugin);
+//                    PluginManager.getInstance(activity).loadPlugin(plugin);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

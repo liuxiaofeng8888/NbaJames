@@ -38,14 +38,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
         @Override
         public void onServiceDisconnected(ComponentName name) {
-//            iMyAidlInterface = null;
         }
     };
 
-
-//    static {
-//        System.loadLibrary("native-lib");
-//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,13 +51,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         initFragment();
         Intent intent = new Intent(activity,AidlService.class);
         bindService(intent,serviceConnection,BIND_AUTO_CREATE);
-//        try {
-//            iMyAidlInterface.getCount();
-//        } catch (RemoteException e) {
-//            e.printStackTrace();
-//        }
-//        Log.e("jni",stringFromJNI()+"jni");
-//        CommonUtils.showToast(this,stringFromJNI());
     }
 
 
