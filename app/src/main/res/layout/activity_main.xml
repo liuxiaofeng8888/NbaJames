@@ -44,7 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@color/white"
-            android:text="待定"
+            android:text="音视频"
             android:textColor="@color/btn_color_selector" />
 
         <Button
@@ -53,7 +53,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@color/white"
-            android:text="控件"
+            android:text="我的"
             android:textColor="@color/btn_color_selector" />
     </LinearLayout>
     <!--<com.pft.liuxiaofeng.nbajames.view.WaterWaveView2-->
