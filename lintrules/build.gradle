@@ -18,9 +18,9 @@ configurations {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     // 依赖于lint的规则的api
-    compile 'com.android.tools.lint:lint-api:26.2.1'
-    compile 'com.android.tools.lint:lint-checks:26.2.1'
-    testCompile 'com.android.tools.lint:lint-tests:26.2.1'
+    implementation 'com.android.tools.lint:lint-api:26.2.1'
+    implementation 'com.android.tools.lint:lint-checks:26.2.1'
+    testImplementation 'com.android.tools.lint:lint-tests:26.2.1'
     lintJarOutput files(jar)
 
 }

@@ -46,7 +46,7 @@ public class NbaFragment extends BaseFragment {
     private List<Integer> images = new ArrayList<>();//图片集合  ;
     private List<String> imagesTitle = new ArrayList<>();//图片标题集合  ;
     private NbaInfoAdapter nbaInfoAdapter;
-//    private int[] images = {R.drawable.bg_home};//图片集合  ;
+//    private int[] images = {R.drawable.bg_home};//图片集合
 
     @Nullable
     @Override
@@ -92,6 +92,7 @@ public class NbaFragment extends BaseFragment {
     }
 
     private void getData() {
+
         Observable<String> observable = RxRequest.createStringRequest(activity.getApplicationContext()).getAllTeamInfo(key);
         observable.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

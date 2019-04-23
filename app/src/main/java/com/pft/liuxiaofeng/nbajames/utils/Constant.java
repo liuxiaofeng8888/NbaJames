@@ -1,7 +1,7 @@
 package com.pft.liuxiaofeng.nbajames.utils;
 
 /**
- * @author :Little Pidding
+ * @author :Little Pudding
  * @since 17-7-12.
  */
 

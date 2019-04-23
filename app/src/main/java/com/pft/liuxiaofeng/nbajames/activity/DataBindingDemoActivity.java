@@ -7,9 +7,8 @@ import android.os.Bundle;
 
 import com.pft.liuxiaofeng.nbajames.R;
 import com.pft.liuxiaofeng.nbajames.databinding.ActivityDataBindingDemoBinding;
-import com.pft.liuxiaofeng.nbajames.databindingvm.DatabindingDemoVm;
 
-import java.util.ArrayList;
+import hui.hik.com.commonsdk.BaseActivity;
 
 public class DataBindingDemoActivity extends BaseActivity {
     private Activity activity;

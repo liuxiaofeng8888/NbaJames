@@ -5,17 +5,15 @@ import android.app.FragmentTransaction;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.ServiceConnection;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.os.RemoteException;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.android.debug.hv.ViewServer;
-import com.pft.liuxiaofeng.nbajames.activity.BaseActivity;
+import hui.hik.com.commonsdk.BaseActivity;
 import com.pft.liuxiaofeng.nbajames.fragment.MyVIewFragment;
 import com.pft.liuxiaofeng.nbajames.fragment.NbaFragment;
 import com.pft.liuxiaofeng.nbajames.fragment.PlayFragment;

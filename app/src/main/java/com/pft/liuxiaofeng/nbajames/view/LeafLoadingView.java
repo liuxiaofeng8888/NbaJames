@@ -15,11 +15,12 @@ import android.util.Log;
 import android.view.View;
 
 import com.pft.liuxiaofeng.nbajames.R;
-import com.pft.liuxiaofeng.nbajames.utils.CommonUtils;
 
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
+
+import hui.hik.com.commonsdk.CommonUtils;
 
 /**
  * @author :Little Pidding

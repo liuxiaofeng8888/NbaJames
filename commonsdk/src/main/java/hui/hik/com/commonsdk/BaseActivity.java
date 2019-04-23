@@ -1,4 +1,4 @@
-package com.pft.liuxiaofeng.nbajames.activity;
+package hui.hik.com.commonsdk;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -9,11 +9,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
-import com.android.debug.hv.ViewServer;
 
 import java.util.ArrayList;
 
 import io.reactivex.disposables.CompositeDisposable;
+
 
 /**
  * Created by LittlePudding on 17-6-12.
@@ -32,7 +32,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ViewServer.get(this).addWindow(this);
+//        ViewServer.get(this).addWindow(this);
         TAG = getClass().getSimpleName();
         activity = this;
         Log.d(TAG, "onCreat！");
@@ -42,7 +42,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        ViewServer.get(this).setFocusedWindow(this);
+//        ViewServer.get(this).setFocusedWindow(this);
     }
 
     protected abstract void initView();
@@ -73,6 +73,6 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        ViewServer.get(this).removeWindow(this);
+//        ViewServer.get(this).removeWindow(this);
     }
 }

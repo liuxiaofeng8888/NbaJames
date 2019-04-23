@@ -8,7 +8,8 @@ import android.graphics.Color;
 import android.view.View;
 
 import com.pft.liuxiaofeng.nbajames.bean.DataBindingModule;
-import com.pft.liuxiaofeng.nbajames.utils.CommonUtils;
+
+import hui.hik.com.commonsdk.CommonUtils;
 
 /**
  * Created by liuxiaofeng on 17-12-15.

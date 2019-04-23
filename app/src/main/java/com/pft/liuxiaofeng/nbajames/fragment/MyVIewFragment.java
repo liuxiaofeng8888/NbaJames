@@ -18,7 +18,6 @@ import com.pft.liuxiaofeng.nbajames.activity.CustomVIew;
 import com.pft.liuxiaofeng.nbajames.activity.DataBindingDemoActivity;
 import com.pft.liuxiaofeng.nbajames.activity.customview.PipChartVIewDIsplay;
 import com.pft.liuxiaofeng.nbajames.activity.customview.WaterWaveViewDisplay;
-import com.pft.liuxiaofeng.nbajames.utils.CommonUtils;
 import com.pft.liuxiaofeng.nbajames.view.MyViewDemo;
 
 /**

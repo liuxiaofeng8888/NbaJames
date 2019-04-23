@@ -5,11 +5,11 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.google.gson.Gson;
-import com.pft.liuxiaofeng.nbajames.utils.CommonUtils;
 
 import java.io.IOException;
 import java.nio.charset.Charset;
 
+import hui.hik.com.commonsdk.CommonUtils;
 import okhttp3.MediaType;
 import okhttp3.Request;
 import okhttp3.RequestBody;

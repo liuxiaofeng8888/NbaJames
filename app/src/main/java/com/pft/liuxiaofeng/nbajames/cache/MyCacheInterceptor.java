@@ -3,10 +3,10 @@ package com.pft.liuxiaofeng.nbajames.cache;
 import android.app.Application;
 import android.content.Context;
 
-import com.pft.liuxiaofeng.nbajames.utils.CommonUtils;
 
 import java.io.IOException;
 
+import hui.hik.com.commonsdk.CommonUtils;
 import okhttp3.CacheControl;
 import okhttp3.Interceptor;
 import okhttp3.Request;

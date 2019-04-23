@@ -1,11 +1,12 @@
 package com.pft.liuxiaofeng.nbajames.bean;
 
 import com.google.gson.annotations.SerializedName;
-import com.pft.liuxiaofeng.nbajames.utils.CommonUtils;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
+import hui.hik.com.commonsdk.CommonUtils;
 
 /**
  * Created by LittlePudding on 17-6-12.

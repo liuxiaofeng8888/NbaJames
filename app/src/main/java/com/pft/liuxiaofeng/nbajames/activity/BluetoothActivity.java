@@ -17,10 +17,12 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.pft.liuxiaofeng.nbajames.R;
-import com.pft.liuxiaofeng.nbajames.utils.CommonUtils;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import hui.hik.com.commonsdk.BaseActivity;
+import hui.hik.com.commonsdk.CommonUtils;
 
 /**
  * created bt LittlePudding

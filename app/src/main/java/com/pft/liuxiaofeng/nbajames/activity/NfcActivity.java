@@ -1,12 +1,13 @@
 package com.pft.liuxiaofeng.nbajames.activity;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
 import com.pft.liuxiaofeng.nbajames.R;
+
+import hui.hik.com.commonsdk.BaseActivity;
 
 /**
  * created by liuxiaofeng

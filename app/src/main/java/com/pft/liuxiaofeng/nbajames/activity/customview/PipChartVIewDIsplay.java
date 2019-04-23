@@ -18,7 +18,7 @@ import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.interfaces.datasets.IDataSet;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.pft.liuxiaofeng.nbajames.R;
-import com.pft.liuxiaofeng.nbajames.activity.BaseActivity;
+import hui.hik.com.commonsdk.BaseActivity;
 
 import java.util.ArrayList;
 

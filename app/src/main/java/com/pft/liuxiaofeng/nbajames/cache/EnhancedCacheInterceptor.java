@@ -3,12 +3,12 @@ package com.pft.liuxiaofeng.nbajames.cache;
 import android.content.Context;
 import android.util.Log;
 
-import com.pft.liuxiaofeng.nbajames.utils.CommonUtils;
 
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.concurrent.TimeUnit;
 
+import hui.hik.com.commonsdk.CommonUtils;
 import okhttp3.CacheControl;
 import okhttp3.Interceptor;
 import okhttp3.MediaType;

@@ -1,4 +1,4 @@
-package com.pft.liuxiaofeng.nbajames.utils;
+package hui.hik.com.commonsdk;
 
 import android.content.Context;
 import android.net.ConnectivityManager;

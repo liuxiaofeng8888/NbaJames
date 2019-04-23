@@ -2,12 +2,12 @@ package com.pft.liuxiaofeng.nbajames.activity.customview;
 
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.widget.TextView;
 
 import com.pft.liuxiaofeng.nbajames.R;
-import com.pft.liuxiaofeng.nbajames.activity.BaseActivity;
-import com.pft.liuxiaofeng.nbajames.utils.CommonUtils;
+import hui.hik.com.commonsdk.BaseActivity;
+
+import hui.hik.com.commonsdk.CommonUtils;
 
 /**
  * created by LittlePudding

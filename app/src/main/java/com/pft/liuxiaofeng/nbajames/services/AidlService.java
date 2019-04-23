@@ -8,7 +8,6 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 
 import com.pft.liuxiaofeng.nbajames.IMyAidlInterface;
-import com.pft.liuxiaofeng.nbajames.utils.CommonUtils;
 
 /**
  * @author :Little Pudding

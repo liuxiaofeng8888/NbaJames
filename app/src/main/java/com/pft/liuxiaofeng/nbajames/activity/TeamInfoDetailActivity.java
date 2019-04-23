@@ -5,12 +5,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.pft.liuxiaofeng.nbajames.R;
 import com.pft.liuxiaofeng.nbajames.bean.TeamInfoDetail;
 import com.pft.liuxiaofeng.nbajames.services.RxRequest;
 import com.pft.liuxiaofeng.nbajames.utils.Constant;
 
+import hui.hik.com.commonsdk.BaseActivity;
 import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
