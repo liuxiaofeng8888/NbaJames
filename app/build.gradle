@@ -3,6 +3,8 @@ apply plugin: 'com.android.application'
 //apply tinker插件
 //apply plugin: 'com.tencent.tinker.patch'
 apply plugin: 'walle'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 walle {
     // 指定渠道包的输出路径
     apkOutputFolder = new File("${project.buildDir}/outputs/channels")
@@ -38,6 +40,8 @@ dependencies {
     // Optional, if you use support library fragments:
     debugImplementation 'com.squareup.leakcanary:leakcanary-support-fragment:1.6.3'
     implementation project(':commonsdk')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'com.blankj:utilcode:1.22.10'
 }
 
 def gitSha() {

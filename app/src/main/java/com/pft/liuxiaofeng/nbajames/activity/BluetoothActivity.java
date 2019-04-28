@@ -11,6 +11,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -81,7 +82,6 @@ public class BluetoothActivity extends BaseActivity implements View.OnClickListe
     protected void initToolbar(TextView tvToolbar) {
 
     }
-
     /**
      * 初始化蓝牙
      */

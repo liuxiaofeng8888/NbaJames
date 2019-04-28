@@ -1,4 +1,6 @@
-buildscript {
+buildscript { 
+    ext.kotlin_version = '1.2.71'
+
     repositories {
         maven { url "https://maven.google.com" }
         maven { url "https://jitpack.io" }
@@ -10,7 +12,7 @@ buildscript {
         classpath 'com.android.tools.build:gradle:3.1.4'
         classpath ('com.tencent.tinker:tinker-patch-gradle-plugin:1.9.1') //tinker接入
         classpath 'com.meituan.android.walle:plugin:1.1.6'//walle接入
-    }
+    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version" }
 }
 
 allprojects {
@@ -24,4 +26,3 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
-
