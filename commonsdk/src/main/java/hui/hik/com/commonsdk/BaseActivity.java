@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 
@@ -28,11 +29,15 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected CompositeDisposable compositeDisposable = new CompositeDisposable();
     protected TextView tvToolbar;
     protected Toolbar toolbar;
+    private FrameLayout container;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        ViewServer.get(this).addWindow(this);
+        View view = View.inflate(this,R.layout.base_layout_activity,null);
+        container = findViewById(R.id.container);
+        setContentView(view);
         TAG = getClass().getSimpleName();
         activity = this;
         Log.d(TAG, "onCreat！");

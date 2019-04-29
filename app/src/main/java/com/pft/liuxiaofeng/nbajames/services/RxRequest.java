@@ -69,7 +69,6 @@ public class RxRequest {
 
     /**
      * 封装retrofit
-     *
      * @return retrofit的调用方法的接口
      */
     public static NbaServices createGsonRequest(Context context) {

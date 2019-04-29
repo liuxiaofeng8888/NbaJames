@@ -17,7 +17,11 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
-
+/**
+ * @author littlepudding
+ * @date 2019-4-29
+ * @description 球队详情信息
+ */
 public class TeamInfoDetailActivity extends BaseActivity {
     private Intent intent;
     private int teamId; //球队的id号

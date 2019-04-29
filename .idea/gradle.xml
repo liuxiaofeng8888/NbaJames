@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$/commonsdk" />
             <option value="$PROJECT_DIR$/lintaar" />
             <option value="$PROJECT_DIR$/lintrules" />
+            <option value="$PROJECT_DIR$/testdemo" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

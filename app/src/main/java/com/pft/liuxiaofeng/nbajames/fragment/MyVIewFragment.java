@@ -13,12 +13,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import hui.hik.com.testdemo.ProxyDemo.DyNamicProxyTest;
 import com.pft.liuxiaofeng.nbajames.R;
 import com.pft.liuxiaofeng.nbajames.activity.CustomVIew;
 import com.pft.liuxiaofeng.nbajames.activity.DataBindingDemoActivity;
 import com.pft.liuxiaofeng.nbajames.activity.customview.PipChartVIewDIsplay;
 import com.pft.liuxiaofeng.nbajames.activity.customview.WaterWaveViewDisplay;
-import com.pft.liuxiaofeng.nbajames.view.MyViewDemo;
 
 /**
  * @author :Little Pidding
@@ -103,6 +103,7 @@ public class MyVIewFragment extends BaseFragment {
             case R.id.btn_my_view:
                 intent.setClass(getActivity(),CustomVIew.class);
                 startActivity(intent);
+                DyNamicProxyTest.main();
                 break;
             case R.id.btn_databinding:
                 intent.setClass(getActivity(), DataBindingDemoActivity.class);

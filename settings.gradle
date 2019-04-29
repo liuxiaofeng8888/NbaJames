@@ -1,1 +1,1 @@
-include ':app', ':lintrules', ':lintaar', ':commonsdk'
+include ':app', ':lintrules', ':lintaar', ':commonsdk', ':testdemo'

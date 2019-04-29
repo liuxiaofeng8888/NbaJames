@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 //apply plugin: 'com.didi.virtualapk.host'
 //apply tinker插件
 //apply plugin: 'com.tencent.tinker.patch'
+apply plugin: 'maven'
 apply plugin: 'walle'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
@@ -42,6 +43,23 @@ dependencies {
     implementation project(':commonsdk')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'com.blankj:utilcode:1.22.10'
+    implementation project(':testdemo')
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+//            repository(url:'http://af.hikvision.com.cn:80/artifactory/System-Android-snapshot/'){
+//                authentication userName:'system-android',password:'system-android'
+//            }
+            repository(url: 'http://af.hikvision.com.cn/artifactory/maven-BBG-snapshot') {
+                authentication userName: 'bbg-dev', password: 'helloworld'
+            }
+            pom.groupId = 'hik.business.bbg'
+            pom.artifactId = 'b-bbg-cpaphone'
+            pom.version = '0.0.1_custom_phone_SNAPSHOT'
+        }
+    }
 }
 
 def gitSha() {
