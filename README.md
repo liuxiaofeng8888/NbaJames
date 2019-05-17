@@ -4,3 +4,5 @@
 还有一些框架的使用比如rxjava+retrofit+disklrucach实现post的请求数据缓存，EventBus消息传递
 以及一些android中高级知识点（自定义view,跨进程通信），
 边边角角的知识点（nfc,蓝牙通信）。
+# 更新记录
+1. 测试SourceTree版本管理软件的使用。
