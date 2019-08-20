@@ -18,7 +18,8 @@ import com.pft.liuxiaofeng.nbajames.R;
 import com.pft.liuxiaofeng.nbajames.activity.CustomVIew;
 import com.pft.liuxiaofeng.nbajames.activity.DataBindingDemoActivity;
 import com.pft.liuxiaofeng.nbajames.activity.customview.PipChartVIewDIsplay;
-import com.pft.liuxiaofeng.nbajames.activity.customview.WaterWaveViewDisplay;
+//import com.pft.liuxiaofeng.nbajames.activity.customview.WaterWaveViewDisplay;
+//import com.pft.liuxiaofeng.nbajames.activity.customview.WaterWaveViewDisplay;
 
 /**
  * @author :Little Pidding
@@ -93,8 +94,8 @@ public class MyVIewFragment extends BaseFragment {
         intent = new Intent();
         switch (v.getId()) {
             case R.id.btn_water_wave:
-                intent.setClass(getActivity(),WaterWaveViewDisplay.class);
-                startActivity(intent);
+//                intent.setClass(getActivity(), WaterWaveViewDisplay.class);
+//                startActivity(intent);
                 break;
             case R.id.btn_pipchart:
                 intent.setClass(getActivity(),PipChartVIewDIsplay.class);

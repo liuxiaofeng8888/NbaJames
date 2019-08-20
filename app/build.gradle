@@ -4,8 +4,8 @@ apply plugin: 'com.android.application'
 //apply plugin: 'com.tencent.tinker.patch'
 apply plugin: 'maven'
 apply plugin: 'walle'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
+//apply plugin: 'kotlin-android'
+//apply plugin: 'kotlin-android-extensions'
 walle {
     // 指定渠道包的输出路径
     apkOutputFolder = new File("${project.buildDir}/outputs/channels")

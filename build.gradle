@@ -9,10 +9,11 @@ buildscript {
         google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.1.4'
+        classpath 'com.android.tools.build:gradle:3.4.1'
         classpath ('com.tencent.tinker:tinker-patch-gradle-plugin:1.9.1') //tinker接入
         classpath 'com.meituan.android.walle:plugin:1.1.6'//walle接入
-    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version" }
+//    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
 }
 
 allprojects {
