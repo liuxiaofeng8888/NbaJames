@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Downloads-NbaJames.iml" filepath="$PROJECT_DIR$/.idea/modules/Downloads-NbaJames.iml" group="NbaJames" />
       <module fileurl="file://$PROJECT_DIR$/NbaJames.iml" filepath="$PROJECT_DIR$/NbaJames.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/NbaJames-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/NbaJames-app.iml" group="NbaJames/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/commonsdk/NbaJames-commonsdk.iml" filepath="$PROJECT_DIR$/.idea/modules/commonsdk/NbaJames-commonsdk.iml" group="NbaJames/commonsdk" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lintaar/NbaJames-lintaar.iml" filepath="$PROJECT_DIR$/.idea/modules/lintaar/NbaJames-lintaar.iml" group="NbaJames/lintaar" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lintrules/NbaJames-lintrules.iml" filepath="$PROJECT_DIR$/.idea/modules/lintrules/NbaJames-lintrules.iml" group="NbaJames/lintrules" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/testdemo/NbaJames-testdemo.iml" filepath="$PROJECT_DIR$/.idea/modules/testdemo/NbaJames-testdemo.iml" group="NbaJames/testdemo" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/commonsdk/commonsdk.iml" filepath="$PROJECT_DIR$/commonsdk/commonsdk.iml" />
       <module fileurl="file://$PROJECT_DIR$/lintaar/lintaar.iml" filepath="$PROJECT_DIR$/lintaar/lintaar.iml" />
