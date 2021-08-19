@@ -8,12 +8,4 @@
 1. 测试SourceTree版本管理软件的使用。
 # 更新记录
 git用法
-这是用户2
-<<<<<<< HEAD
-<<<<<<< HEAD
-111这是分支
-=======
->>>>>>> parent of dcf381f (no thing)
-=======
-111
->>>>>>> parent of 01f71b9 (add)
+这是revert的例子
