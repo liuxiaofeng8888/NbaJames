@@ -10,6 +10,10 @@
 git用法
 这是用户2
 <<<<<<< HEAD
+<<<<<<< HEAD
 111这是分支
 =======
 >>>>>>> parent of dcf381f (no thing)
+=======
+111
+>>>>>>> parent of 01f71b9 (add)
