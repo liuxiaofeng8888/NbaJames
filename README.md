@@ -9,3 +9,4 @@
 # 更新记录
 git用法
 这是revert的例子
+stash存起来
