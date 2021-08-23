@@ -8,3 +8,4 @@
 1. 测试SourceTree版本管理软件的使用。
 # 更新记录
 git用法
+git reset的用法
